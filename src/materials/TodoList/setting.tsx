@@ -9,7 +9,7 @@ export default {
   formConf (formData: any) {
     return {
       themeColor: {
-        label: '主题颜色',
+        label: 'themeColor',
         slot: () => <standard-color-picker vModel={formData.themeColor} />
       },
       ...pick(formData, [

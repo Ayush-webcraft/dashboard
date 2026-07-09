@@ -22,6 +22,7 @@
     "commit": "cz",
     "dev": "vite",
     "build": "cross-env VITE_APP_BUILD_MODE=cdn vite build",
+    "build:docker": "vite build",
     "upload": "node scripts/upload-cdn.cjs",
     "serve": "vite preview",
     "build:crx": "cross-env VITE_APP_BUILD_MODE=crx vite build",

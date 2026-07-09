@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('选择文件夹')"
+    :title="$t('selectFolder')"
     width="min(280px, 86vw)"
     height="min(320px, 60vh)"
     custom-class="bookmark-config-dialog"
@@ -36,10 +36,10 @@
     <template #footer>
       <div class="footer" style="text-align: right;padding: 12px;">
         <button type="button" class="btn" @click="closeDialog">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button type="button" class="btn btn-primary" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>

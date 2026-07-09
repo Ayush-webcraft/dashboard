@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-// 星空效果
+// Starfield effect
 // https://codepen.io/leon-kfd/pen/yLqbqzX
 import { onMounted, onUnmounted, ref } from 'vue'
 import StarEffect from './source/Star'

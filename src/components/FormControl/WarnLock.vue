@@ -3,7 +3,7 @@
     v-if="!hiddenWarnLockTips"
     :title="$t('warnLockTips')"
     type="warning"
-    :close-text="$t('知道了')"
+    :close-text="$t('gotIt')"
     style="margin-bottom: 8px"
     @close="close"
   />

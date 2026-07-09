@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper font-selector">
     <el-select
-      :placeholder="$t('请选择相关字体库')"
+      :placeholder="$t('selectAFontFamily')"
       clearable
       filterable
       allow-create

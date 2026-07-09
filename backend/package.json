@@ -1,0 +1,13 @@
+{
+  "name": "howdz-backend-placeholder",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Placeholder backend so the CI/CD pipeline has a real second image to build/scan/deploy. Replace with the actual backend service, or delete this folder and the backend steps in .github/workflows if this project stays frontend-only.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

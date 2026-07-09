@@ -14,14 +14,14 @@ export default {
   formConf (formData: any) {
     return {
       eventName: {
-        label: '目标事件名称',
+        label: 'eventName',
         type: 'input',
         attrs: {
           placeholder: '请输入事件名称'
         }
       },
       eventTime: {
-        label: '目标事件时间',
+        label: 'eventTime',
         type: 'date-picker',
         attrs: {
           type: 'datetime',
@@ -33,7 +33,7 @@ export default {
         }
       },
       unit: {
-        label: '时间单位',
+        label: 'unit',
         type: 'select',
         option: {
           list: ['天', '小时', '分钟']

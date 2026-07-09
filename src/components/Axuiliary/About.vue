@@ -2,24 +2,38 @@
   <div class="wrapper">
     <div class="item">
       <p class="title">
-        {{ $t('项目说明') }}
+        {{ $t('project') }}
       </p>
       <ul class="list">
-        <li>项目提供<code>网页在线版</code>、<code>浏览器插件</code>、<code style="text-decoration: line-through;">桌面应用</code>等访问方式，具体参考<a :href="INTRODUCTION" target="_blank">中文文档</a></li>
         <li>
-          项目基于
-          <a :href="MIT" target="_blank">MIT</a> 协议开源 &copy; <a :href="AUTHOR_BLOG" target="_blank">Leon.D</a>，源码地址访问此处
+          {{ $t('about_desc_1_1') }}
+          <code>{{ $t('about_desc_1_2') }}</code>{{ $t('about_comma') }}<code>{{ $t('about_desc_1_3') }}</code>{{ $t('about_comma') }}<code style="text-decoration: line-through;">{{ $t('about_desc_1_4') }}</code>{{ $t('about_desc_1_5') }}<a :href="INTRODUCTION" target="_blank">{{ $t('about_desc_1_6') }}</a>
+        </li>
+        <li>
+          {{ $t('about_desc_2_1') }}
+          <a :href="MIT" target="_blank">MIT</a>
+          {{ $t('about_desc_2_2') }} &copy;
+          <a :href="AUTHOR_BLOG" target="_blank">Leon.D</a>{{ $t('about_desc_2_3') }}
           <a :href="GITHUB" target="_blank">Github</a>
         </li>
-        <li>技术栈使用<code>Vite</code>、<code>Vue3</code>、<code>Typescript</code>, 欢迎各种PR贡献你的想法</li>
-        <li>若对此项目有想法、建议或问题都可在Github的 <a :href="ISSUE" target="_blank">Issue</a> 上留言</li>
-        <li>网站数据存储在浏览器本地的<code>LocalStorage</code>中，数据丢失无法进行恢复</li>
-        <li>项目核心功能完全前端实现, 无需依赖后端。但部分物料组件依赖第三方在线API实现, 未必能保证稳定</li>
+        <li>
+          {{ $t('about_desc_3_1') }}
+          <code>Vite</code>{{ $t('about_comma') }}<code>Vue3</code>{{ $t('about_comma') }}<code>Typescript</code>{{ $t('about_desc_3_2') }}
+        </li>
+        <li>
+          {{ $t('about_desc_4_1') }}
+          <a :href="ISSUE" target="_blank">Issue</a>{{ $t('about_desc_4_2') }}
+        </li>
+        <li>
+          {{ $t('about_desc_5_1') }}
+          <code>LocalStorage</code>{{ $t('about_desc_5_2') }}
+        </li>
+        <li>{{ $t('about_desc_6') }}</li>
       </ul>
     </div>
     <div class="item">
       <p class="title">
-        {{ $t('项目演示视频') }}
+        {{ $t('demoVideo') }}
       </p>
       <a class="video-wrapper" :href="VIDEO" target="_blank">
         <img src="@/assets/imgs/video-thumb.png" alt="">

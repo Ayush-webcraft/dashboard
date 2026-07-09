@@ -1,11 +1,11 @@
 export default function (formData: any, fields: string[] | string) {
   const baseTemplate: Record<string, any> = {
     position: {
-      label: '文本对齐',
+      label: 'textAlign',
       slot: () => <position-selector vModel={formData.position}></position-selector>
     },
     textFontSize: {
-      label: '字体大小',
+      label: 'textSize',
       type: 'input-number',
       attrs: {
         'controls-position': 'right',
@@ -16,7 +16,7 @@ export default function (formData: any, fields: string[] | string) {
       unit: 'px'
     },
     baseFontSize: {
-      label: '基础字体大小',
+      label: 'baseSize',
       type: 'input-number',
       attrs: {
         'controls-position': 'right',
@@ -28,11 +28,11 @@ export default function (formData: any, fields: string[] | string) {
       tips: 'baseFontSizeTips'
     },
     textColor: {
-      label: '字体颜色',
+      label: 'fontColor',
       slot: () => <standard-color-picker vModel={formData.textColor} />
     },
     textShadow: {
-      label: '字体阴影',
+      label: 'textShadow',
       type: 'input',
       attrs: {
         placeholder: 'e.g. "0 0 1px #464646"'
@@ -40,16 +40,16 @@ export default function (formData: any, fields: string[] | string) {
       tips: 'textShadowTips'
     },
     iconShadow: {
-      label: '图标阴影',
+      label: 'iconShadow',
       type: 'input',
       tips: 'iconShadowTips'
     },
     fontFamily: {
-      label: '字体库',
+      label: 'fontFamily',
       slot: () => <font-selector vModel={formData.fontFamily} showRefresh></font-selector>
     },
     padding: {
-      label: '盒子内边距',
+      label: 'padding',
       type: 'input-number',
       attrs: {
         'controls-position': 'right',
@@ -60,7 +60,7 @@ export default function (formData: any, fields: string[] | string) {
       unit: 'px'
     },
     showTitle: {
-      label: '标题LOGO',
+      label: 'tileLogo',
       type: 'switch',
       attrs: {
         'active-text': '展示顶部标题LOGO'
@@ -68,30 +68,30 @@ export default function (formData: any, fields: string[] | string) {
     },
     clickActionType: {
       when: (formData: any) => formData.showTitle,
-      label: '点击LOGO',
+      label: 'clickLogo',
       type: 'select',
       option: {
         list: [
-          { label: '无', value: 0 },
-          { label: '刷新列表', value: 1 },
-          { label: '跳转主页', value: 2 }
+          { label: 'none', value: 0 },
+          { label: 'refreshList', value: 1 },
+          { label: 'jumpToHomePage', value: 2 }
         ],
         label: 'label',
         value: 'value'
       },
-      tips: '配置LOGO的点击事件'
+      tips: 'configureTheLogoClickAction'
     },
     jumpType: {
-      label: '网页跳转方式',
+      label: 'jumpType',
       type: 'radio-group',
       radio: {
         list: [
           {
-            name: '新窗口打开',
+            name: 'newWindow',
             value: 1
           },
           {
-            name: '当前页跳转',
+            name: 'currentPage',
             value: 2
           }
         ],

@@ -23,3 +23,12 @@ dist/howdz-dashboard.zip
 .env
 
 CODE_REVIEW.md
+
+# CI/CD tooling output (generated locally when running the same checks as CI)
+reports
+.scannerwork
+
+# SSH keys (e.g. generated per docs/CICD_SETUP.md)
+*.pem
+*_deploy_key
+*_deploy_key.pub

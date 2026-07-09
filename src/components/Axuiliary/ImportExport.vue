@@ -2,16 +2,16 @@
   <div class="wrapper">
     <div class="export">
       <div class="title">
-        {{ $t('配置数据导出') }}
+        {{ $t('export') }}
       </div>
       <el-form label-width="80px" label-position="top">
-        <el-form-item :label="$t('导出方式')">
+        <el-form-item :label="$t('exportType')">
           <el-radio-group v-model="exportType">
             <el-radio :label="1">
-              {{ $t('生成随机密钥') }}
+              {{ $t('generateRandomKey') }}
             </el-radio>
             <el-radio :label="2">
-              {{ $t('导出JSON文件') }}
+              {{ $t('exportJsonFile') }}
             </el-radio>
           </el-radio-group>
           <div v-if="exportType === 1" class="gen-key-wrapper">
@@ -22,7 +22,7 @@
               :loading="genExportKeyLoading"
               @click="genExportKey"
             >
-              {{ $t('生成密钥') }}
+              {{ $t('generate') }}
             </button>
             <div v-if="exportKey" class="key-wrapper">
               <span class="export-key">{{ exportKey }}</span>
@@ -32,7 +32,7 @@
                 style="margin: 0"
                 @click="handleCopyExportKey"
               >
-                {{ $t('复制') }}
+                {{ $t('copy') }}
               </button>
             </div>
             <el-alert
@@ -50,7 +50,7 @@
               style="margin: 0 0 4px"
               @click="handleExportJson"
             >
-              {{ $t('导出JSON') }}
+              {{ $t('download') }}
             </button>
           </div>
         </el-form-item>
@@ -59,16 +59,16 @@
     <hr class="hr">
     <div class="import">
       <div class="title">
-        {{ $t('配置数据导入') }}
+        {{ $t('import') }}
       </div>
       <el-form label-width="80px" label-position="top">
-        <el-form-item :label="$t('导入方式')">
+        <el-form-item :label="$t('importType')">
           <el-radio-group v-model="importType">
             <el-radio :label="1">
-              {{ $t('使用随机密钥') }}
+              {{ $t('useRandomKey') }}
             </el-radio>
             <el-radio :label="2">
-              {{ $t('导入JSON文件') }}
+              {{ $t('importJsonFile') }}
             </el-radio>
           </el-radio-group>
           <div v-if="importType === 1" class="import-key-wrapper">
@@ -86,7 +86,7 @@
               :loading="importKeyLoading"
               @click="handleImport"
             >
-              {{ $t('确定') }}
+              {{ $t('confirm') }}
             </button>
           </div>
           <div v-if="importType === 2" class="json-wrapper">
@@ -96,7 +96,7 @@
               style="margin-left: 0"
               @click="handleUploadJSON"
             >
-              {{ $t('上传JSON文件') }}
+              {{ $t('upload') }}
             </button>
             <input ref="jsonRef" type="file" accept=".json" style="display: none">
           </div>
@@ -182,7 +182,7 @@ const genExportKey = async () => {
   } catch (e) {
     //
     console.error(e)
-    window.alert(t('生成密钥失败'))
+    window.alert(t('generateKeyError'))
   } finally {
     genExportKeyLoading.value = false
   }
@@ -191,9 +191,9 @@ const genExportKey = async () => {
 const handleCopyExportKey = () => {
   if (execCopy(exportKey.value)) {
     ElNotification({
-      title: t('提示'),
+      title: t('tips'),
       type: 'success',
-      message: t('密钥复制成功，请在其他设备导入密钥进行配置同步')
+      message: t('keyCopiedSyncTip')
     })
   }
 }
@@ -259,9 +259,9 @@ const updateConfig = (data: any) => {
   ])
   store.updateGlobal(global)
   ElNotification({
-    title: t('提示'),
+    title: t('tips'),
     type: 'success',
-    message: t('导入配置成功')
+    message: t('importSuccess')
   })
 }
 
@@ -275,7 +275,7 @@ const handleImport = async () => {
       if (errCode === 200) {
         const result = unzip(data)
         const importValue = JSON.parse(result)
-        if (confirm(t('已找到相应同步配置，配置会覆盖本地浏览器历史数据，是否继续？'))) {
+        if (confirm(t('confirmOverwriteWithFoundConfig'))) {
           updateConfig(importValue)
         }
       } else {
@@ -283,7 +283,7 @@ const handleImport = async () => {
       }
     } catch (e) {
       ElNotification({
-        title: t('异常'),
+        title: t('exception'),
         type: 'error',
         message: (e as Error).toString()
       })
@@ -298,9 +298,9 @@ const handleUploadJSON = () => {
   jsonRef.value.onchange = (e: InputEvent) => {
     const errorHandler = () => {
       ElNotification({
-        title: t('异常'),
+        title: t('exception'),
         type: 'error',
-        message: t('识别文件错误，请检查文件')
+        message: t('fileParseError')
       })
     }
     const el = e.currentTarget
@@ -312,7 +312,7 @@ const handleUploadJSON = () => {
         const jsonFileData = e1.target?.result
         try {
           const json = JSON.parse(jsonFileData as any)
-          if (confirm(t('设别文件成功，配置会覆盖本地浏览器历史数据，是否继续？'))) {
+          if (confirm(t('confirmOverwriteWithParsedConfig'))) {
             updateConfig(json)
           }
         } catch {

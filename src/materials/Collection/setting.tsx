@@ -25,11 +25,11 @@ export default {
   formConf (formData: any) {
     return {
       position: {
-        label: '对齐方式',
+        label: 'align',
         slot: () => <position-selector vModel={formData.position}></position-selector>
       },
       keyboardMaxWidth: {
-        label: '键盘最大宽度',
+        label: 'keyboardMaxWidth',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -40,25 +40,25 @@ export default {
         unit: 'px'
       },
       useKeyboardEvent: {
-        label: '快捷按键',
+        label: 'keyEvent',
         type: 'switch',
         tips: 'keyboardEventTips'
       },
       jumpType: {
-        label: '网页跳转方式',
+        label: 'jumpType',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '新窗口打开',
+              name: 'newWindow',
               value: 1
             },
             {
-              name: '当前页跳转',
+              name: 'currentPage',
               value: 2
             },
             {
-              name: '页面内Iframe打开',
+              name: 'openInPageIframe',
               value: 3
             }
           ],
@@ -67,7 +67,7 @@ export default {
         }
       },
       keyGutter: {
-        label: '按键间隔',
+        label: 'itemGutter',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -78,7 +78,7 @@ export default {
         unit: 'px'
       },
       keyBorderRadius: {
-        label: '按键圆角',
+        label: 'itemRadius',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -89,11 +89,11 @@ export default {
         unit: 'px'
       },
       keyBackground: {
-        label: '按键背景色',
+        label: 'itemBgcolor',
         slot: () => <standard-color-picker vModel={formData.keyBackground} show-alpha />
       },
       textColor: {
-        label: '字体颜色',
+        label: 'fontColor',
         slot: () => <standard-color-picker vModel={formData.textColor} />
       },
       ...pick(formData, [

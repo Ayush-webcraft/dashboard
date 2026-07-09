@@ -7,12 +7,12 @@
       <span class="hamburger hamburger-2" />
       <span class="hamburger hamburger-3" />
     </label>
-    <el-tooltip effect="dark" :content="$t('辅助功能') + `(Alt+X)`" placement="top">
+    <el-tooltip effect="dark" :content="$t('auxiliaryConfig') + `(Alt+X)`" placement="top">
       <div class="menu-item" @click="handleShowAuxiliaryConfig">
         <Icon name="tools" />
       </div>
     </el-tooltip>
-    <el-tooltip effect="dark" :content="(isLock ? $t('解锁') : $t('锁定')) + `(Alt+E)`" placement="top">
+    <el-tooltip effect="dark" :content="(isLock ? $t('unlock') : $t('lock')) + `(Alt+E)`" placement="top">
       <div
         class="menu-item"
         :title="$t('editStatueWarningText')"
@@ -21,19 +21,19 @@
         <Icon :name="!isLock ? 'unlock' : 'lock'" />
       </div>
     </el-tooltip>
-    <el-tooltip effect="dark" :content="$t('全局设置') + `(Alt+W)`" placement="top">
+    <el-tooltip effect="dark" :content="$t('globalSetting') + `(Alt+W)`" placement="top">
       <div class="menu-item" @click="handleShowGlobalConfig">
         <Icon name="setting-4" />
       </div>
     </el-tooltip>
-    <el-tooltip effect="dark" :content="$t('添加组件') + `(Alt+Q)`" placement="top">
+    <el-tooltip effect="dark" :content="$t('addComponent') + `(Alt+Q)`" placement="top">
       <div class="menu-item" @click="handleAddComponent">
         <Icon name="add" />
       </div>
     </el-tooltip>
   </nav>
   <!-- filters -->
-  <!-- ios safari 无法使用此滤镜 -->
+  <!-- iOS Safari can't use this filter -->
   <svg v-if="!isSafari" id="filterSvg" xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
       <filter id="shadowed-goo">

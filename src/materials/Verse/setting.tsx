@@ -14,16 +14,16 @@ export default {
   formConf (formData: any) {
     return {
       source: {
-        label: '随机源',
+        label: 'randomSource',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '古诗',
+              name: 'poetry',
               value: 1
             },
             {
-              name: '名言',
+              name: 'quote',
               value: 2
             }
           ],
@@ -32,7 +32,7 @@ export default {
         }
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -44,14 +44,14 @@ export default {
         tips: 'durationMinuteTips'
       },
       clickActionType: {
-        label: '点击文本行为',
+        label: 'clickAction',
         type: 'select',
         option: {
           list: [
-            { label: '无', value: 0 },
-            { label: '切换下一个', value: 1 },
-            { label: '跳转查看出处', value: 2 },
-            { label: '复制文本', value: 3 }
+            { label: 'none', value: 0 },
+            { label: 'switchToNext', value: 1 },
+            { label: 'viewDetail', value: 2 },
+            { label: 'copyText', value: 3 }
           ],
           label: 'label',
           value: 'value'

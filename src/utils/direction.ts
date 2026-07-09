@@ -35,10 +35,10 @@ export interface PopoverOption {
 }
 
 /**
- * 获取Popover目标信息
- * @param element 来源DOM
- * @param popoverRect popover信息
- * @param direction popover方向
+ * Get the popover target point info
+ * @param element source DOM element
+ * @param popoverRect popover rect info
+ * @param direction popover direction
  * @returns [endX, endY, fromX, fromY]
  */
 export function getPopoverActivePointByDirection(

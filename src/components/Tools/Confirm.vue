@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="dialogTitle || $t('提示')"
+    :title="dialogTitle || $t('tips')"
     width="300px"
     :height="`${dialogHeight || 200}px`"
     @close="close"
@@ -12,10 +12,10 @@
     <template #footer>
       <div class="footer" style="text-align: right;padding: 12px;">
         <button type="button" class="btn" @click="closeDialog">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button type="button" class="btn btn-primary" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>

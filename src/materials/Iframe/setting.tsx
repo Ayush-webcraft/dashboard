@@ -16,7 +16,7 @@ export default {
         ]
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -28,7 +28,7 @@ export default {
         tips: 'iframeRefreshTips'
       },
       useCache: {
-        label: '缓存节点',
+        label: 'cacheNode',
         type: 'switch',
         tips: 'iframeCacheTips'
       }

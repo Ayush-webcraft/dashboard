@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <Unset v-else :tips="`💫${$t('未配置目标时间，请进行配置')}`" />
+    <Unset v-else :tips="`💫${$t('waitForConfigTargetTime')}`" />
   </div>
 </template>
 

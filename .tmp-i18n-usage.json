@@ -1,0 +1,770 @@
+{
+  "usage": {
+    "添加组件": [
+      "src\\App.vue",
+      "src\\components\\BaseConfig.vue",
+      "src\\components\\GooeyMenu.vue"
+    ],
+    "全局设置": [
+      "src\\App.vue",
+      "src\\components\\GlobalConfig.vue",
+      "src\\components\\GooeyMenu.vue"
+    ],
+    "辅助功能": [
+      "src\\App.vue",
+      "src\\components\\AuxiliaryConfig.vue",
+      "src\\components\\GooeyMenu.vue"
+    ],
+    "刷新壁纸": [
+      "src\\App.vue",
+      "src\\components\\Global\\BackgroundImage.vue"
+    ],
+    "下载壁纸": [
+      "src\\App.vue"
+    ],
+    "粘贴": [
+      "src\\App.vue",
+      "src\\components\\Layout.vue"
+    ],
+    "粘贴异常": [
+      "src\\App.vue",
+      "src\\components\\Layout.vue"
+    ],
+    "请检查权限授权或复制的数据是否正确": [
+      "src\\App.vue",
+      "src\\components\\Layout.vue"
+    ],
+    "进入编辑": [
+      "src\\App.vue"
+    ],
+    "锁定": [
+      "src\\App.vue",
+      "src\\components\\GooeyMenu.vue",
+      "src\\components\\Layout.vue"
+    ],
+    "组件交互配置": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "基础配置": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "交互行为": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "无": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue",
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "鼠标点击": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\ActionConfig.vue"
+    ],
+    "显示新组件(Toggle)": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "跳转链接": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "运行Javascript脚本": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "请输入一个可用的跳转链接": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "Toggle组件配置": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "物料组件": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "尺寸": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "Popover配置": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "方向": [
+      "src\\components\\ActionConfig.vue"
+    ],
+    "阴影": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "圆角": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "背景": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "组件配置": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue"
+    ],
+    "取消": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue",
+      "src\\components\\GlobalConfig.vue",
+      "src\\components\\Tools\\Confirm.vue",
+      "src\\components\\Tools\\IconifyPicker.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Bookmark\\MoveDialog.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "确认": [
+      "src\\components\\ActionConfig.vue",
+      "src\\components\\BaseConfig.vue",
+      "src\\components\\Global\\DefaultTheme.vue",
+      "src\\components\\GlobalConfig.vue",
+      "src\\components\\Tools\\Confirm.vue",
+      "src\\components\\Tools\\IconifyPicker.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Bookmark\\MoveDialog.vue",
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "项目说明": [
+      "src\\components\\Axuiliary\\About.vue"
+    ],
+    "项目演示视频": [
+      "src\\components\\Axuiliary\\About.vue"
+    ],
+    "删除所有数据": [
+      "src\\components\\Axuiliary\\CleanCache.vue"
+    ],
+    "壁纸动画特效": [
+      "src\\components\\Axuiliary\\EffectSelector.vue"
+    ],
+    "应用": [
+      "src\\components\\Axuiliary\\EffectSelector.vue",
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "配置数据导出": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "导出方式": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "生成随机密钥": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "导出JSON文件": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "生成密钥": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "复制": [
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\Axuiliary\\TabControl.vue",
+      "src\\components\\Layout.vue"
+    ],
+    "导出JSON": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "配置数据导入": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "导入方式": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "使用随机密钥": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "导入JSON文件": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "确定": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "上传JSON文件": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "生成密钥失败": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "提示": [
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\BaseConfig.vue",
+      "src\\components\\Global\\DefaultTheme.vue",
+      "src\\components\\Tools\\Confirm.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\MovieLines\\index.vue",
+      "src\\materials\\Verse\\index.vue",
+      "src\\materials\\Weather\\index.vue",
+      "src\\materials\\Weather\\index.vue"
+    ],
+    "密钥复制成功，请在其他设备导入密钥进行配置同步": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "导入配置成功": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "已找到相应同步配置，配置会覆盖本地浏览器历史数据，是否继续？": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "异常": [
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "识别文件错误，请检查文件": [
+      "src\\components\\Axuiliary\\ImportExport.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "设别文件成功，配置会覆盖本地浏览器历史数据，是否继续？": [
+      "src\\components\\Axuiliary\\ImportExport.vue"
+    ],
+    "多页设置": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "未命名": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "当前应用": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "删除": [
+      "src\\components\\Axuiliary\\TabControl.vue",
+      "src\\components\\Layout.vue",
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "新增": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "其他设置": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "方向键切换": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "展示切换按钮": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "隐藏": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "显示(默认样式)": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "显示(文字样式)": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "重命名标签页": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "标签页已达上限，无法添加": [
+      "src\\components\\Axuiliary\\TabControl.vue",
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "删除后不可恢复, 确认要删除该标签页?": [
+      "src\\components\\Axuiliary\\TabControl.vue"
+    ],
+    "编辑组件": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "定位模式": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "栅格模式": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "Fixed模式": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "Fixed方向": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "组件尺寸": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "其他配置": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "ID属性注入": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "组件自定义ID": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "已自动进入编辑模式，编辑模式可进行组件拖拽与右键菜单配置": [
+      "src\\components\\BaseConfig.vue"
+    ],
+    "滤镜": [
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue"
+    ],
+    "亮度": [
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue"
+    ],
+    "高斯模糊": [
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue"
+    ],
+    "动画滤镜": [
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue"
+    ],
+    "请前往辅助功能设置": [
+      "src\\components\\FormControl\\BackgroundFilterSelector.vue"
+    ],
+    "纯色": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "本地图片": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "网络图片": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "随机图片": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "选择颜色": [
+      "src\\components\\FormControl\\BackgroundSelector.vue",
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "毛玻璃效果": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "模糊值": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "输入图片或动态壁纸URL": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "输入图片URL": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "图片源": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "必应": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "新浪": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "个人壁纸库": [
+      "src\\components\\FormControl\\BackgroundSelector.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "关键词": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "自定义": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "自定义关键词(英文)": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "国内镜像": [
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "定时刷新": [
+      "src\\components\\FormControl\\BackgroundSelector.vue",
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "操作按钮": [
+      "src\\components\\FormControl\\BackgroundSelector.vue",
+      "src\\components\\FormControl\\BackgroundSelector.vue"
+    ],
+    "本地图片库": [
+      "src\\components\\FormControl\\BackgroundSelector.vue",
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue"
+    ],
+    "管理本地图片库": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue"
+    ],
+    "确定要删除所选项?": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue",
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "成功": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue"
+    ],
+    "上传成功": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue"
+    ],
+    "错误": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue",
+      "src\\components\\FormControl\\BackgroundTool\\RecommendVideo.vue",
+      "src\\components\\Global\\BackgroundEffect\\RainDrop.vue",
+      "src\\components\\Global\\BackgroundImage.vue"
+    ],
+    "上传出错": [
+      "src\\components\\FormControl\\BackgroundTool\\LocalImg.vue"
+    ],
+    "查看个人壁纸库": [
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "导入": [
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "导出": [
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "批量删除": [
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue"
+    ],
+    "批量操作": [
+      "src\\components\\FormControl\\BackgroundTool\\PersonalWallpaper.vue",
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "今日壁纸推荐": [
+      "src\\components\\FormControl\\BackgroundTool\\RecommendPicture.vue",
+      "src\\components\\FormControl\\BackgroundTool\\RecommendPicture.vue"
+    ],
+    "必应壁纸": [
+      "src\\components\\FormControl\\BackgroundTool\\RecommendPicture.vue"
+    ],
+    "360壁纸": [
+      "src\\components\\FormControl\\BackgroundTool\\RecommendPicture.vue"
+    ],
+    "动态壁纸推荐": [
+      "src\\components\\FormControl\\BackgroundTool\\RecommendVideo.vue",
+      "src\\components\\FormControl\\BackgroundTool\\RecommendVideo.vue"
+    ],
+    "获取动态壁纸URL失败": [
+      "src\\components\\FormControl\\BackgroundTool\\RecommendVideo.vue"
+    ],
+    "请选择相关字体库": [
+      "src\\components\\FormControl\\FontSelector.vue"
+    ],
+    "选择物料": [
+      "src\\components\\FormControl\\MaterialSelector.vue",
+      "src\\components\\FormControl\\MaterialSelector.vue"
+    ],
+    "知道了": [
+      "src\\components\\FormControl\\WarnLock.vue"
+    ],
+    "雨滴特效实现失败, 请确保壁纸地址允许跨域": [
+      "src\\components\\Global\\BackgroundEffect\\RainDrop.vue"
+    ],
+    "喜欢": [
+      "src\\components\\Global\\BackgroundImage.vue",
+      "src\\components\\Global\\BackgroundImage.vue"
+    ],
+    "动态视频壁纸加载出错，请重试或更换视频源": [
+      "src\\components\\Global\\BackgroundImage.vue"
+    ],
+    "主题预设": [
+      "src\\components\\Global\\DefaultTheme.vue"
+    ],
+    "请选择一个预设主题": [
+      "src\\components\\Global\\DefaultTheme.vue"
+    ],
+    "不用了": [
+      "src\\components\\Global\\DefaultTheme.vue"
+    ],
+    "选择预设主题成功": [
+      "src\\components\\Global\\DefaultTheme.vue"
+    ],
+    "壁纸": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "杂项": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "语言": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "组件间隔": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "全局字体": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "勾选此项会在页面进入后加载鸿蒙字体,然后可以在字体选择器中选择或输入HarmonyOS_Regular,初次设置需刷新页面": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "网站标题": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "自定义网站的标题": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "网站Icon": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "图标库": [
+      "src\\components\\GlobalConfig.vue",
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "禁用动画": [
+      "src\\components\\GlobalConfig.vue",
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "菜单按钮": [
+      "src\\components\\GlobalConfig.vue",
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "全局CSS注入": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "全局JS注入": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "图标大小不能超过128k": [
+      "src\\components\\GlobalConfig.vue"
+    ],
+    "解锁": [
+      "src\\components\\GooeyMenu.vue"
+    ],
+    "组件编辑": [
+      "src\\components\\Layout.vue"
+    ],
+    "交互配置": [
+      "src\\components\\Layout.vue"
+    ],
+    "刷新组件": [
+      "src\\components\\Layout.vue"
+    ],
+    "复制异常": [
+      "src\\components\\Layout.vue"
+    ],
+    "请检查权限授权": [
+      "src\\components\\Layout.vue"
+    ],
+    "确定删除吗": [
+      "src\\components\\Layout.vue"
+    ],
+    "图标选择器": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "请以英文输入搜索关键词, 例如: Github": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "搜索": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "出现未知异常": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "图标库来源于Iconify在线服务，请输入英文关键词进行搜索": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "没有查找到相应图标": [
+      "src\\components\\Tools\\IconifyPicker.vue"
+    ],
+    "编辑书签": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "添加书签": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "类型": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "图标": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "文件夹": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "从Chrome书签导入": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "添加到文件夹": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "网站地址": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "请输入网站地址": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "网站名称": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "文件夹名称": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "请输入网站名称": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "请输入文件夹名称": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "网站图标": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "图标地址": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "请输入图标网络地址": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "文本颜色": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "图标文案": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "仅限一个字": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "背景颜色": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "图标预览": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue",
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "缓存图标": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "书签HTML": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "导入文件": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "解析书签文件成功，解析结果如下": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "无法获取到图标，使用文字图标代替": [
+      "src\\materials\\Bookmark\\ConfigDialog.vue"
+    ],
+    "项已选择": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "移动": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "新标签页打开": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "IFrame窗口打开": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "添加": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "编辑": [
+      "src\\materials\\Bookmark\\index.vue",
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "目前暂不支持移动文件夹": [
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "确认要删除所选项?": [
+      "src\\materials\\Bookmark\\index.vue"
+    ],
+    "选择文件夹": [
+      "src\\materials\\Bookmark\\MoveDialog.vue"
+    ],
+    "请输入图标地址": [
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "清空": [
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "确定清除该按键绑定的网页吗?": [
+      "src\\materials\\Collection\\index.vue",
+      "src\\materials\\Collection\\index.vue"
+    ],
+    "未配置目标时间，请进行配置": [
+      "src\\materials\\CountDown\\index.vue"
+    ],
+    "导入Markdown": [
+      "src\\materials\\Editor\\index.vue"
+    ],
+    "导出Markdown": [
+      "src\\materials\\Editor\\index.vue"
+    ],
+    "导入会覆盖当前内容，是否继续?": [
+      "src\\materials\\Editor\\index.vue"
+    ],
+    "IFrame路径丢失，请进行配置": [
+      "src\\materials\\Iframe\\index.vue"
+    ],
+    "复制成功": [
+      "src\\materials\\MovieLines\\index.vue",
+      "src\\materials\\Verse\\index.vue"
+    ],
+    "当前引擎组": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "双击重新编辑": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "备用引擎组": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "拖拽至此处删除": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "自定义引擎": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "引擎名称": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "请输入引擎名称": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "引擎地址": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "请输入引擎地址": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "例如": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "引擎图标": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "是否删除该自定义引擎": [
+      "src\\materials\\Search\\EngineConfig.vue"
+    ],
+    "来自书签": [
+      "src\\materials\\Search\\index.vue"
+    ],
+    "清空历史记录": [
+      "src\\materials\\Search\\index.vue"
+    ],
+    "按Tab键可快速切换搜索引擎": [
+      "src\\materials\\Search\\index.vue"
+    ],
+    "不再提示": [
+      "src\\materials\\Search\\index.vue"
+    ],
+    "获取天气失败，请检查配置!": [
+      "src\\materials\\Weather\\index.vue"
+    ],
+    "无法识别出城市，请重新配置": [
+      "src\\materials\\Weather\\index.vue"
+    ]
+  }
+}

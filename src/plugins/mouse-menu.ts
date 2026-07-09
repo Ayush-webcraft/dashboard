@@ -78,10 +78,10 @@ const mounted = (el: HTMLElement, binding: any) => {
           return
         }
         try {
-          // 执行轻微震动
+          // Trigger a light vibration
           navigator.vibrate(100)
         } catch {
-          // 不支持震动
+          // Vibration not supported
         }
         MouseMenuCtx = CustomMouseMenu({
           el,

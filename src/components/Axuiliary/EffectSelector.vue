@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="title">
-      {{ $t('壁纸动画特效') }}
+      {{ $t('wallpaperAnimation') }}
     </div>
     <div class="content">
       <el-alert
@@ -28,7 +28,7 @@
     </div>
     <div class="footer">
       <button class="btn btn-primary" @click="onSubmit">
-        {{ $t('应用') }}
+        {{ $t('apply') }}
       </button>
     </div>
   </div>
@@ -45,32 +45,32 @@ onMounted(() => {
 const effectList = ref([
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/disabled.png',
-    name: '禁用',
+    name: 'disable',
     value: 0
   },
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/rain-drop.gif',
-    name: '雨滴',
+    name: 'rainDrop',
     value: 1
   },
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/snow.gif',
-    name: '飘雪',
+    name: 'snow',
     value: 2
   },
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/Star.gif',
-    name: '星空',
+    name: 'star',
     value: 3
   },
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/FireFlies.gif',
-    name: '萤火虫',
+    name: 'firefly',
     value: 4
   },
   {
     img: 'https://cdn.kongfandong.cn/img/animate-effect/Focus.gif',
-    name: '聚焦',
+    name: 'focus',
     value: 5
   }
 ])

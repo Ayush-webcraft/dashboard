@@ -234,14 +234,14 @@ export default defineComponent({
         customClass: 'title'
       },
       {
-        label: () => t('组件编辑'),
+        label: () => t('componentEditMenu'),
         fn: (params: ComponentOptions) => {
           emit('edit', params.i)
         },
         icon: h(Icon, { name: 'edit-box', size: 18 })
       },
       {
-        label: () => t('交互配置') as string,
+        label: () => t('actionConfigMenu') as string,
         hidden: (params: ComponentOptions) =>
           !['Empty', 'Clock', 'Verse', 'CountDown', 'Weather'].includes(params.material),
         fn: (params: ComponentOptions) => {
@@ -250,7 +250,7 @@ export default defineComponent({
         icon: h(Icon, { name: 'equalizer', size: 18 })
       },
       {
-        label: () => t('刷新组件'),
+        label: () => t('refresh'),
         fn: async (params: ComponentOptions & { refresh?: boolean }) => {
           params.refresh = true
           await nextTick()
@@ -259,7 +259,7 @@ export default defineComponent({
         icon: h(Icon, { name: 'refresh', size: 18 })
       },
       {
-        label: () => t('锁定'),
+        label: () => t('lock'),
         fn: () => {
           store.updateIsLock(true)
         },
@@ -269,25 +269,25 @@ export default defineComponent({
         line: true
       },
       {
-        label: () => t('复制'),
+        label: () => t('copy'),
         fn: async (params: ComponentOptions) => {
           try {
             await navigator.clipboard.writeText(JSON.stringify(params, null, 2))
           } catch (e) {
-            ElNotification({ title: t('复制异常'), type: 'error', message: t('请检查权限授权')})
+            ElNotification({ title: t('copyError'), type: 'error', message: t('pleaseCheckPermission')})
             console.error(e)
           }
         },
         icon: h(Icon, { name: 'copy', size: 18 })
       },
       {
-        label: () => t('粘贴'),
+        label: () => t('paste'),
         fn: async () => {
           try {
             const res = await navigator.clipboard.readText()
             const componentData = JSON.parse(res)
             if (componentData.material && componentData.componentSetting) {
-              // Fixed模式的组件粘贴时更改下位置防止重叠看不出来
+              // Offset the position slightly when pasting a Fixed-mode component so overlap is noticeable
               if (componentData.position === 2) {
                 componentData.affixInfo.x = componentData.affixInfo?.x + 20
                 componentData.affixInfo.y = componentData.affixInfo?.y + 20
@@ -297,7 +297,7 @@ export default defineComponent({
               throw new Error('Not Howdz component data')
             }
           } catch (e) {
-            ElNotification({ title: t('粘贴异常'), type: 'error', message: t('请检查权限授权或复制的数据是否正确')})
+            ElNotification({ title: t('pasteError'), type: 'error', message: t('pasteErrorDetail')})
             console.error(e)
           }
         },
@@ -307,10 +307,10 @@ export default defineComponent({
         line: true
       },
       {
-        label: () => t('删除'),
+        label: () => t('delete'),
         fn: async (params: ComponentOptions) => {
           try {
-            await confirmRef.value.confirm(`❗ ${t('确定删除吗')}?`, { height: 150 })
+            await confirmRef.value.confirm(`❗ ${t('confirmDelete')}?`, { height: 150 })
             store.deleteComponent(params)
           } catch {
             //

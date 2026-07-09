@@ -85,28 +85,28 @@
           <span v-else>{{ editState.editingInfo.key }}</span>
         </div>
         <el-form ref="form" label-width="110px">
-          <el-form-item :label="$t('网站地址')">
-            <el-input v-model="editState.editingInfo.url" :placeholder="$t('请输入网站地址')" @blur="onBlurNetURL" />
+          <el-form-item :label="$t('url')">
+            <el-input v-model="editState.editingInfo.url" :placeholder="$t('enterSiteUrl')" @blur="onBlurNetURL" />
           </el-form-item>
-          <el-form-item :label="$t('网站名称')">
-            <el-input v-model="editState.editingInfo.remark" :placeholder="$t('请输入网站名称')" />
+          <el-form-item :label="$t('siteName')">
+            <el-input v-model="editState.editingInfo.remark" :placeholder="$t('enterSiteName')" />
           </el-form-item>
-          <el-form-item :label="$t('网站图标')">
+          <el-form-item :label="$t('bookmarkSiteIcon')">
             <el-radio-group v-model="editState.editingInfo.iconType" @change="onChangeIconType">
               <el-radio v-for="item in iconTypeList" :key="item.value" :label="item.value">
                 {{ $t(item.label) }}
               </el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item v-if="editState.editingInfo.iconType === 'network'" :label="$t('图标地址')">
+          <el-form-item v-if="editState.editingInfo.iconType === 'network'" :label="$t('src')">
             <div class="flex-center-y" style="width: 100%;">
-              <el-input v-model="editState.editingInfo.iconLink" :placeholder="$t('请输入图标地址')" style="width: 100%;flex: 1" @blur="onBlurIconLink" />
+              <el-input v-model="editState.editingInfo.iconLink" :placeholder="$t('enterIconUrl')" style="width: 100%;flex: 1" @blur="onBlurIconLink" />
               <button type="button" class="btn btn-small btn-primary" style="height: 32px;padding: 0 8px;" @click="showIconPicker">
-                {{ $t('图标库') }}
+                {{ $t('icons') }}
               </button>
             </div>
           </el-form-item>
-          <el-form-item :label="$t('图标预览')">
+          <el-form-item :label="$t('preview')">
             <div class="icon-img-preview-box">
               <img v-if="iconPreview" :src="iconPreview" alt="icon-preview">
             </div>
@@ -121,7 +121,7 @@
             :disabled="!editState.editingInfo.url && !editState.editingInfo.remark"
             @click="clearEidtInfo"
           >
-            {{ $t('清空') }}
+            {{ $t('clear') }}
           </button>
           <button
             type="button"
@@ -129,7 +129,7 @@
             :loading="saveLoading"
             @click="handleUserKeySave"
           >
-            {{ $t('确认') }}
+            {{ $t('submit') }}
           </button>
         </div>
       </template>
@@ -180,11 +180,11 @@ const { t } = useI18n()
 
 const iconTypeList = [
   {
-    label: 'API获取',
+    label: 'api',
     value: 'api'
   },
   {
-    label: '网络图片',
+    label: 'online',
     value: 'network'
   }
 ]
@@ -258,7 +258,7 @@ const showDialog = ($event: MouseEvent | null, key: string) => {
 }
 const clearEidtInfo = () => {
   if (editState.editingInfo.url && editState.editingInfo.remark) {
-    if (confirm(t('确定清除该按键绑定的网页吗?'))) {
+    if (confirm(t('confirmToClear'))) {
       editState.editingInfo.url = ''
       editState.editingInfo.remark = ''
       const _userSettingKeyMap = unref(userSettingKeyMap)
@@ -271,7 +271,7 @@ const clearEidtInfo = () => {
 }
 
 const clearKey = (key: string) => {
-  if (confirm(t('确定清除该按键绑定的网页吗?'))) {
+  if (confirm(t('confirmToClear'))) {
     const _userSettingKeyMap = unref(userSettingKeyMap)
     delete _userSettingKeyMap[key]
     updateUserSettingKeyMap(_userSettingKeyMap)
@@ -378,14 +378,14 @@ const menuList = ref<MenuSetting[]>([
     customClass: 'title'
   },
   {
-    label: () => t('新标签页打开'),
+    label: () => t('openInNewTab'),
     customClass: 'skip-icon',
     fn: (params: any) => {
       window.open(userSettingKeyMap.value[params.key].url)
     },
   },
   {
-    label: () => t('IFrame窗口打开'),
+    label: () => t('openInIframe'),
     customClass: 'skip-icon',
     fn: (params: any) => {
       iframeOpener.value.open(userSettingKeyMap.value[params.key].url)
@@ -395,14 +395,14 @@ const menuList = ref<MenuSetting[]>([
     line: true
   },
   {
-    label: () => t('编辑'),
+    label: () => t('edit'),
     icon: h(Icon, { name: 'lock', size: 18 }) as any,
     fn: (params: any) => {
       showDialog(null, params.key)
     }
   },
   {
-    label: () => t('清空'),
+    label: () => t('clear'),
     icon: h(Icon, { name: 'delete', size: 18 }) as any,
     fn: (params: any) => {
       clearKey(params.key)

@@ -15,7 +15,7 @@ export default {
   formConf (formData: any) {
     return {
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -36,13 +36,13 @@ export default {
         'padding'
       ]),
       textHollow: {
-        label: '镂空字效果',
+        label: 'textHollow',
         type: 'switch',
         tips: 'textStrokeTips'
       },
       textHollowBorder: {
         when: (formData: any) => formData.textHollow,
-        label: '镂空边框',
+        label: 'hollowBorder',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -54,7 +54,7 @@ export default {
       },
       textHollowBg: {
         when: (formData: any) => formData.textHollow,
-        label: '镂空背景色',
+        label: 'hollowBackgroundColor',
         slot: () => <standard-color-picker show-alpha vModel={formData.textHollowBg} />
       }
     }

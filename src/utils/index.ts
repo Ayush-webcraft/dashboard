@@ -71,7 +71,7 @@ export function ajaxPost(url: string, data: any): Promise<any> {
   })
 }
 
-// 复制文本
+// Copy text
 export function execCopy(text: string) {
   const input = document.createElement('input') as HTMLInputElement
   input.style.opacity = '0'
@@ -86,7 +86,7 @@ export function execCopy(text: string) {
   return true
 }
 
-// 获取文件类型
+// Get the file type
 export function getFileType(path: string) {
   const index = path.lastIndexOf('.')
   if (~index) {
@@ -95,12 +95,12 @@ export function getFileType(path: string) {
   return null
 }
 
-// 获取UID
+// Get a UID
 export function uid() {
   return Math.random().toString(16).slice(2)
 }
 
-// 加载鸿蒙字体
+// Load the HarmonyOS font
 export function loadHarmonyOSFont() {
   function createLink(attrs: Record<string, string>) {
     const link = document.createElement('link');
@@ -123,32 +123,32 @@ export function loadHarmonyOSFont() {
   });
 }
 
-// base64转blob
+// Convert base64 to a Blob
 export function base64ToBlob(dataURI: string) {
-  const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // mime类型
-  const byteString = atob(dataURI.split(',')[1]); // base64 解码
-  const arrayBuffer = new ArrayBuffer(byteString.length); // 创建缓冲数组
-  const intArray = new Uint8Array(arrayBuffer); // 创建视图
+  const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // MIME type
+  const byteString = atob(dataURI.split(',')[1]); // base64 decode
+  const arrayBuffer = new ArrayBuffer(byteString.length); // create the buffer array
+  const intArray = new Uint8Array(arrayBuffer); // create the view
   for (let i = 0; i < byteString.length; i++) {
     intArray[i] = byteString.charCodeAt(i);
   }
   return new Blob([intArray], { type: mimeString });
 }
 
-// 判断是否是有效的URL
+// Determine whether it's a valid URL
 export function isURL(url: string): boolean {
   if (typeof url !== 'string') {
     return false;
   }
-  // 全面的URL正则表达式，支持http、https、ftp等协议
+  // Comprehensive URL regex, supports http, https, ftp, etc.
   const urlRegex = /^((https?|ftp):\/\/)\/?([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?|localhost|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(\/[^?#\s]*)?(\?[^#\s]*)?(#[^\s]*)?$/;
   
-  // 尝试使用URL构造函数验证
+  // Try validating with the URL constructor
   try {
     new URL(url);
     return true;
   } catch {
-    // 如果没有协议，尝试添加http://后再验证
+    // If there's no protocol, try prepending http:// and validating again
     try {
       new URL('http://' + url);
       return urlRegex.test('http://' + url);
@@ -158,14 +158,14 @@ export function isURL(url: string): boolean {
   }
 }
 
-// 判断是否需要加https://
+// Determine whether https:// needs to be prepended
 export const judgeAddHttps = (url: string) => {
   if (url.includes('://')) return url
   if (['tel:', 'mailto:'].includes(url)) return url
   return 'https://' + url
 }
 
-// 判断是否是iOS Safari浏览器
+// Determine whether it's the iOS Safari browser
 export const isIOSSafari = () => {
   const ua = window.navigator.userAgent;
   const iOS = !!ua.match(/iPad|iPhone|iPod/);

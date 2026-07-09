@@ -42,55 +42,55 @@ export default defineComponent({
       {
         value: 1,
         rotate: -45,
-        cn: '左上',
+        cn: 'topLeft',
         en: 'Top Left'
       },
       {
         value: 2,
         rotate: 0,
-        cn: '顶部水平居中',
+        cn: 'topCenter',
         en: 'Top Center'
       },
       {
         value: 3,
         rotate: 45,
-        cn: '右上',
+        cn: 'topRight',
         en: 'Top Right'
       },
       {
         value: 4,
         rotate: -90,
-        cn: '左侧垂直居中',
+        cn: 'centerLeft',
         en: 'Center Left'
       },
       {
         value: 5,
         rotate: 0,
-        cn: '居中',
+        cn: 'center',
         en: 'Center'
       },
       {
         value: 6,
         rotate: 90,
-        cn: '右侧垂直居中',
+        cn: 'centerRight',
         en: 'Center Right'
       },
       {
         value: 7,
         rotate: -135,
-        cn: '左下',
+        cn: 'bottomLeft',
         en: 'Bottom Left'
       },
       {
         value: 8,
         rotate: 180,
-        cn: '底部水平居中',
+        cn: 'bottomCenter',
         en: 'Bottom Center'
       },
       {
         value: 9,
         rotate: 135,
-        cn: '右下',
+        cn: 'bottomRight',
         en: 'Bottom Right'
       }
     ]
@@ -99,25 +99,25 @@ export default defineComponent({
       {
         value: 1,
         rotate: -45,
-        cn: '左上',
+        cn: 'topLeft',
         en: 'Top Left'
       },
       {
         value: 2,
         rotate: 45,
-        cn: '右上',
+        cn: 'topRight',
         en: 'Top Right'
       },
       {
         value: 3,
         rotate: -135,
-        cn: '左下',
+        cn: 'bottomLeft',
         en: 'Bottom Left'
       },
       {
         value: 4,
         rotate: 135,
-        cn: '右下',
+        cn: 'bottomRight',
         en: 'Bottom Right'
       }
     ]

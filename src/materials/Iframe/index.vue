@@ -19,7 +19,7 @@
         frameborder="0"
         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"
       />
-      <Unset v-else :tips="`💫${$t('IFrame路径丢失，请进行配置')}`" />
+      <Unset v-else :tips="`💫${$t('waitForConfigIframeUrl')}`" />
     </template>
   </div>
 </template>
@@ -73,7 +73,7 @@ watch(
 )
 
 
-// Iframe Cache, 将Iframe Dom移到body中用以后续打开后复用
+// Iframe Cache: move the Iframe DOM into body so it can be reused on subsequent opens
 const needUseCache = ref(false)
 const iframe = ref()
 const iframeWrapper = ref<HTMLElement>()

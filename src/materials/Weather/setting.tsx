@@ -16,16 +16,16 @@ export default {
   formConf (formData: any) {
     return {
       weatherMode: {
-        label: '天气城市',
+        label: 'city',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '自动获取(IP)',
+              name: 'ipAddress',
               value: 1
             },
             {
-              name: '手动输入',
+              name: 'enter',
               value: 2
             }
           ],
@@ -51,12 +51,12 @@ export default {
         }]
       },
       animationIcon: {
-        label: '动画图标',
+        label: 'animation',
         type: 'switch',
-        tips: '默认使用含动画的ICON，若想提高性能可关闭使用静态ICON'
+        tips: 'animatedIconTips'
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',

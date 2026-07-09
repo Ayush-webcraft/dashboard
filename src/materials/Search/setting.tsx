@@ -88,31 +88,31 @@ export default {
         }
       },
       keywordLink: {
-        label: '关键词联想',
+        label: 'keywordGuess',
         type: 'switch'
       },
       rememberHistory: {
-        label: '记录搜索历史',
+        label: 'keepHistory',
         type: 'switch',
-        tips: '最多只会记录10条'
+        tips: 'limitMax10ItemToKeep'
       },
       linkBookMark: {
         when: (formData: any) => !!formData.keywordLink,
-        label: '同时搜索书签',
+        label: 'linkBookmark',
         type: 'switch',
-        tips: '开启后搜索的同时尝试对书签组件的数据进行搜索'
+        tips: 'enableToFindBookmarkLinkWhenSearching'
       },
       jumpType: {
-        label: '网页跳转方式',
+        label: 'jumpType',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '新窗口打开',
+              name: 'newWindow',
               value: 1
             },
             {
-              name: '当前页跳转',
+              name: 'currentPage',
               value: 2
             }
           ],
@@ -122,16 +122,16 @@ export default {
       },
       ...pick(formData, ['position', 'textColor']),
       boxBackground: {
-        label: '搜索栏背景',
+        label: 'boxBgcolor',
         slot: () => <standard-color-picker vModel={formData.boxBackground} show-alpha/>
       },
       boxShadow: {
-        label: '搜索栏阴影',
+        label: 'boxShadow',
         type: 'input',
         tips: 'shadowTips'
       },
       boxRadius: {
-        label: '搜索栏圆角',
+        label: 'boxRadius',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -142,16 +142,16 @@ export default {
         unit: 'px'
       },
       backdropBlur: {
-        label: '毛玻璃背景',
+        label: 'glassBackground',
         type: 'switch',
-        tips: '是否开启毛玻璃背景，只在搜索栏背景有透明度情况下生效，基于backdrop-filter属性，部分浏览器不支持'
+        tips: 'searchGlassBackgroundTips'
       },
       focusBgAnimation: {
-        label: '聚焦背景动画',
+        label: 'focusEffect',
         type: 'switch'
       },
       maxWidth: {
-        label: '最大宽度',
+        label: 'maxWidth',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -162,9 +162,9 @@ export default {
         unit: 'px'
       },
       autoFocus: {
-        label: '自动聚焦',
+        label: 'autoFocus',
         type: 'switch',
-        tips: '尝试在页面打开时自动聚焦该输入框，部分场景不支持'
+        tips: 'autoFocusTips'
       },
       ...pick(formData, 'padding'),
     }

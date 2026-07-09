@@ -1,28 +1,28 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('组件交互配置')"
+    :title="$t('actionConfig')"
     width="min(800px, 98vw)"
     height="min(600px, 90vh)"
   >
     <div class="main-config">
       <div class="base-config-wrapper">
         <div class="config-title">
-          {{ $t('基础配置') }}
+          {{ $t('baseConfig') }}
         </div>
         <div class="form-wrapper scrollbar1">
           <el-form label-width="100px">
-            <el-form-item :label="$t('交互行为')">
+            <el-form-item :label="$t('action')">
               <el-select v-model="state.formData.actionType">
-                <el-option :label="$t('无')" :value="0" />
-                <el-option :label="$t('鼠标点击')" :value="1" />
+                <el-option :label="$t('none')" :value="0" />
+                <el-option :label="$t('click')" :value="1" />
               </el-select>
             </el-form-item>
-            <el-form-item v-if="state.formData.actionType === 1" :label="$t('鼠标点击')">
+            <el-form-item v-if="state.formData.actionType === 1" :label="$t('click')">
               <el-select v-model="state.formData.actionClickType">
-                <el-option :label="$t('显示新组件(Toggle)')" :value="1" />
-                <el-option :label="$t('跳转链接')" :value="2" />
-                <el-option :label="$t('运行Javascript脚本')" :value="3" disabled />
+                <el-option :label="$t('toggleNewMaterial')" :value="1" />
+                <el-option :label="$t('jumpToNewPage')" :value="2" />
+                <el-option :label="$t('runJavascript')" :value="3" disabled />
               </el-select>
             </el-form-item>
             <el-form-item
@@ -30,7 +30,7 @@
             >
               <el-input
                 v-model="state.formData.actionClickValue.url"
-                :placeholder="$t('请输入一个可用的跳转链接')"
+                :placeholder="$t('theNewPageUrl')"
               />
             </el-form-item>
           </el-form>
@@ -39,10 +39,10 @@
             class="action-component-setting"
           >
             <div class="title">
-              {{ $t('Toggle组件配置') }}
+              {{ $t('toggleConfig') }}
             </div>
             <el-form ref="componentSettingForm" class="setting-form1" label-position="top">
-              <el-form-item :label="$t('物料组件')">
+              <el-form-item :label="$t('material')">
                 <div class="flex-center-y">
                   <component
                     :is="MaterialSelector"
@@ -51,7 +51,7 @@
                   <Tips :content="$t('actionMaterialTips')" />
                 </div>
               </el-form-item>
-              <el-form-item :label="$t('尺寸')">
+              <el-form-item :label="$t('size')">
                 <div class="form-row-control">
                   <div class="label">
                     Width
@@ -83,10 +83,10 @@
                   </div>
                 </div>
               </el-form-item>
-              <el-form-item :label="$t('Popover配置')">
+              <el-form-item :label="$t('popoverConfig')">
                 <div class="form-row-control">
                   <div class="label">
-                    {{ $t('方向') }}
+                    {{ $t('direction') }}
                   </div>
                   <div class="content">
                     <el-select v-model="state.formData.actionClickValue.direction" style="width: 200px;">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-row-control">
                   <div class="label">
-                    {{ $t('阴影') }}
+                    {{ $t('shadow') }}
                   </div>
                   <div class="content">
                     <el-input
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-row-control">
                   <div class="label">
-                    {{ $t('圆角') }}
+                    {{ $t('radius') }}
                   </div>
                   <div class="content">
                     <el-input-number
@@ -128,7 +128,7 @@
                   </div>
                 </div>
               </el-form-item>
-              <el-form-item :label="$t('背景')">
+              <el-form-item :label="$t('background')">
                 <BackgroundSelector
                   v-model:background="state.formData.actionClickValue.background"
                   v-model:backdropFilter="state.formData.actionClickValue.backdropFilter"
@@ -148,7 +148,7 @@
       </div>
       <div v-if="state.formData.actionType === 1 && state.formData.actionClickType === 1" class="component-config-wrapper">
         <div class="config-title">
-          {{ $t('组件配置') }}
+          {{ $t('componentSetting') }}
         </div>
         <div class="form-wrapper scrollbar1">
           <component
@@ -164,10 +164,10 @@
     <template #footer>
       <div class="footer" style="text-align: right; padding: 12px">
         <button type="button" class="btn" @click="close">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button type="button" class="btn btn-primary" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>

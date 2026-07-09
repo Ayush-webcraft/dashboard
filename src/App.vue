@@ -78,7 +78,7 @@ const showAuxiliaryConfig = () => {
 const handleDownloadBg = () => {
   const url = document.querySelector('.global-bg-img')?.getAttribute('src')
   if (url) {
-    // 当前因非同域名图片不能直接下载，会新窗口打开
+    // Cross-origin images can't be downloaded directly, so this opens a new window instead
     const a = document.createElement('a')
     a.setAttribute('href', url)
     a.setAttribute('download', 'background')
@@ -89,21 +89,21 @@ const handleDownloadBg = () => {
 
 const menuList = ref([
   {
-    label: () => t('添加组件'),
+    label: () => t('addComponent'),
     fn: () => {
       showAddDialog()
     },
     icon: h(Icon, { name: 'add', size: 20 })
   },
   {
-    label: () => t('全局设置'),
+    label: () => t('globalSetting'),
     fn: () => {
       showGlobalConfig()
     },
     icon: h(Icon, { name: 'setting-4', size: 18 })
   },
   {
-    label: () => t('辅助功能'),
+    label: () => t('auxiliaryConfig'),
     fn: () => {
       showAuxiliaryConfig()
     },
@@ -113,7 +113,7 @@ const menuList = ref([
     line: true
   },
   {
-    label: () => t('刷新壁纸'),
+    label: () => t('refreshWallpaper'),
     hidden: () => !global.value.background.includes('api/randomPhoto'),
     fn: () => {
       bg.value.refresh()
@@ -121,7 +121,7 @@ const menuList = ref([
     icon: h(Icon, { name: 'refresh', size: 18 })
   },
   {
-    label: () => t('下载壁纸'),
+    label: () => t('downloadWallpaper'),
     hidden: () => !global.value.background.includes('api/randomPhoto'),
     fn: () => {
       handleDownloadBg()
@@ -133,14 +133,14 @@ const menuList = ref([
     hidden: () => !global.value.background.includes('api/randomPhoto')
   },
   {
-    label: () => t('粘贴'),
+    label: () => t('paste'),
     hidden: () => isLock.value,
     fn: async () => {
       try {
         const res = await navigator.clipboard.readText()
         const componentData = JSON.parse(res)
         if (componentData.material && componentData.componentSetting) {
-          // Fixed模式的组件粘贴时更改下位置防止重叠看不出来
+          // Offset the position slightly when pasting a Fixed-mode component so overlap is noticeable
           if (componentData.position === 2) {
             componentData.affixInfo.x = componentData.affixInfo?.x + 20
             componentData.affixInfo.y = componentData.affixInfo?.y + 20
@@ -150,14 +150,14 @@ const menuList = ref([
           throw new Error('Not Howdz component data')
         }
       } catch (e) {
-        ElNotification({ title: t('粘贴异常'), type: 'error', message: t('请检查权限授权或复制的数据是否正确')})
+        ElNotification({ title: t('pasteError'), type: 'error', message: t('pasteErrorDetail')})
         console.error(e)
       }
     },
     icon: h(Icon, { name: 'clipboard', size: 18 })
   },
   {
-    label: () => (isLock.value ? t('进入编辑') : t('锁定')),
+    label: () => (isLock.value ? t('enterEditMode') : t('lock')),
     fn: () => {
       store.updateIsLock(!isLock.value)
     },
@@ -188,11 +188,11 @@ const needShowDefaultThemePicker = computed(() => {
 })
 
 onMounted(async () => {
-  // 加载鸿蒙字体
+  // Load the HarmonyOS font
   if (store.global.loadHarmonyOSFont) {
     loadHarmonyOSFont()
   }
-  // IOS Safari icon不支持svg特殊处理成png
+  // iOS Safari doesn't support svg icons, so convert to png specially
   if (isIOSSafari() && global.value.siteIcon) {
     const appleTouchIconDom = document.querySelector("link[rel='apple-touch-icon']") as HTMLLinkElement
     if (appleTouchIconDom) {

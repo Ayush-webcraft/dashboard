@@ -68,10 +68,10 @@
         <Icon name="menu" fill="#434C5E" :width="componentSetting.textFontSize * 1.2" :height="componentSetting.textFontSize * 1.2" />
         <div class="menu-dropdown">
           <div class="menu-dropdown-item" @click="onImportMarkdown">
-            {{ $t('导入Markdown') }}
+            {{ $t('importMarkdown') }}
           </div>
           <div class="menu-dropdown-item" @click="onExportMarkdown">
-            {{ $t('导出Markdown') }}
+            {{ $t('exportMarkdown') }}
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@ const isLock = computed(() => store.isLock)
 const milkdown = ref()
 const inputFileEl = ref()
 
-// 如果使用数组监听会触发新旧值一样的回调，因为对象内存已改变
+// Watching the array directly would fire the callback with identical old/new values, since the object's memory has already changed
 watch(
   () => props.componentSetting.enableTooltip,
   () => milkdown.value.update()
@@ -173,7 +173,7 @@ const onImportMarkdown = () => {
       const reader = new FileReader()
       reader.onload = (e) => {
         const md = e.target?.result as string
-        if (window.confirm(t('导入会覆盖当前内容，是否继续?'))) {
+        if (window.confirm(t('confirmImportOverwrite'))) {
           onChange(md)
           milkdown.value.update()
         }

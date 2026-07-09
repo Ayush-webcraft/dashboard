@@ -85,12 +85,12 @@ export const isSupportFontFamily = function(f: string) {
 export async function getSupportFontFamilyList () {
   try {
     // https://font-access-api.glitch.me/
-    // Chrome^103 允许授权获取本地字体
+    // Chrome 103+ allows authorized access to local fonts
     if (window.queryLocalFonts && typeof window.queryLocalFonts === 'function') {
       const fonts = await window.queryLocalFonts()
       if (fonts.length > 0) {
         return fonts.reduce((prev: IFontData[], curr) => {
-          // 英文字体很多, 目前仅获取中文字体
+          // There are many English fonts; only Chinese fonts are collected for now
           if (/^[\u4E00-\u9FFF\s]+$/.test(curr.fullName)) {
             return [
               ...prev, 

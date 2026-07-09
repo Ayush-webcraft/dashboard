@@ -7,8 +7,8 @@ type SwiptType = {
   }
 }
 /**
- * 手势判断配置
- * @param {options} options - 需要绑定手势的DOM元素
+ * Gesture detection config
+ * @param {options} options - DOM element to bind the gesture to
  */
 export const initSwipe = (options: SwiptType) => {
   let startX, startY, startTime;
@@ -18,7 +18,7 @@ export const initSwipe = (options: SwiptType) => {
     return
   }
   options.el.addEventListener('touchstart', (e) => {
-      // 记录初始位置和时间
+      // Record the initial position and time
       const touch = e.touches[0];
       startX = touch.clientX;
       startY = touch.clientY;
@@ -26,33 +26,33 @@ export const initSwipe = (options: SwiptType) => {
   }, { passive: true });
 
   options.el.addEventListener('touchend', (e) => {
-      // 如果没有有效的起始点，直接返回（防止在某些异常情况下触发）
+      // Return early if there's no valid starting point (guards against edge-case triggers)
       if (startX === undefined || startY === undefined) return;
       const touch = e.changedTouches[0];
       const endX = touch.clientX;
       const endY = touch.clientY;
       const endTime = Date.now();
-      // 计算移动距离
+      // Calculate the movement distance
       const diffX = endX - startX;
       const diffY = endY - startY;
       const timeDiff = endTime - startTime;
-      // 判断是否为滑动：距离足够，时间合理（防止长按误触，比如限制在500ms内）
+      // Determine if this counts as a swipe: enough distance, reasonable time (guards against a long-press mistrigger, e.g. capped at 500ms)
       if (Math.abs(diffX) > threshold && Math.abs(diffX) > Math.abs(diffY) && timeDiff < 500) {
           if (diffX > 0) {
-              // 向右滑动
-              console.log('👉 右划');
+              // Swipe right
+              console.log('👉 swipe right');
               options.callbacks.right?.(e);
           } else {
-              // 向左滑动
-              console.log('👈 左划');
+              // Swipe left
+              console.log('👈 swipe left');
               options.callbacks.left?.(e);
           }
       }
-      // 重置起始点
+      // Reset the starting point
       startX = startY = undefined;
   }, { passive: true });
 
-  // 如果滑动过程中进入系统滚动导致中断，可以重置位置
+  // Reset the position if the swipe is interrupted by the system taking over scrolling
   options.el.addEventListener('touchcancel', () => {
       startX = startY = undefined;
   }, { passive: true });

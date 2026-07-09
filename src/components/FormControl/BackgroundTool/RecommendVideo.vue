@@ -1,10 +1,10 @@
 <template>
   <button type="button" class="btn btn-small btn-primary" style="margin: 0;margin-right: 5px;" @click="handleOpenSelector">
-    {{ $t('动态壁纸推荐') }}
+    {{ $t('dynamicWallpaper') }}
   </button>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('动态壁纸推荐')"
+    :title="$t('dynamicWallpaper')"
     width="min(760px, 94vw)"
     height="min(480px, 80vh)"
   >
@@ -108,9 +108,9 @@ const handleSelect = async (item: any, type: string) => {
     }
   } catch {
     ElNotification({
-      title: t('错误'),
+      title: t('error'),
       type: 'error',
-      message: t('获取动态壁纸URL失败')
+      message: t('failedToGetDynamicWallpaperUrl')
     })
   } finally {
     loading.value = false

@@ -30,17 +30,17 @@ import Icon from '@/components/Tools/Icon.vue'
 import { setPreviewModeData } from '@/utils/preview-mode'
 
 if (import.meta.env.PROD) {
-  // 强制重定向到https
+  // Force redirect to https
   if (window?.location?.protocol === 'http:') {
     window.location.href = window.location.href.replace('http', 'https')
   }
-  // 开启ServiceWorker
+  // Enable the ServiceWorker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js')
     });
   }
-  // 判断当前是否为Edge扩展, 更换Favicon
+  // Determine whether this is the Edge extension, and swap the favicon
   const isEdgeExtension = window.location.href.includes('chrome-extension') && window.navigator.userAgent.includes('Edg/')
   if (isEdgeExtension) {
     const iconRel = document.querySelector('link[rel="icon"]')
@@ -48,7 +48,7 @@ if (import.meta.env.PROD) {
   }
 }
 
-// 非Edge滚动条重置
+// Reset the scrollbar for non-Edge browsers
 if (!window.navigator.userAgent.includes('Edg/')) {
   document.body.classList.add('scrollbar1')
 }
@@ -114,7 +114,7 @@ init()
 // document.documentElement.style.setProperty('--el-border-radius-base', '8px')
 // document.documentElement.style.setProperty('--el-border-radius-small', '4px')
 
-// 移动端禁用右键菜单与任何长按选中
+// Disable the context menu and any long-press selection on mobile
 if ('ontouchstart' in window) {
   document.documentElement.style.setProperty('--user-select', 'none')
   document.addEventListener('contextmenu', (e) => e.preventDefault())

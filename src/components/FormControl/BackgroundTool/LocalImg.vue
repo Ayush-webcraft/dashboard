@@ -1,10 +1,10 @@
 <template>
   <button type="button" class="btn btn-primary btn-small" style="margin: 0;" @click="handleOpenSelector">
-    {{ $t('管理本地图片库') }}
+    {{ $t('openLocalImageManagement') }}
   </button>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('本地图片库')"
+    :title="$t('images')"
     width="min(760px, 94vw)"
     height="min(480px, 80vh)"
   >
@@ -115,7 +115,7 @@ const handleJump = async (item: any) => {
 }
 
 const handleDelete = async (item: any) => {
-  if (window.confirm(t('确定要删除所选项?'))) {
+  if (window.confirm(t('confrimToDelete'))) {
     if (item.key) {
       await localImg.removeItem(item.key)
       await localThumbImg.removeItem(item.key)
@@ -152,16 +152,16 @@ const handleInputFileChange = async (e: any) => {
       await localThumbImg.setItem(item.id, item.thumbImg)
     }))
     ElNotification({
-      title: t('成功'),
+      title: t('success'),
       type: 'success',
-      message: t('上传成功')
+      message: t('uploadSuccess')
     })
     initData()
   } catch (e) {
     ElNotification({
-      title: t('错误'),
+      title: t('error'),
       type: 'error',
-      message: t('上传出错')
+      message: t('somethingWrong')
     })
   } finally {
     uploadLoading.value = false

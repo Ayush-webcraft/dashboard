@@ -17,7 +17,7 @@ export default {
   formConf (formData: any) {
     return {
       milkdownPlugins: {
-        label: 'Milkdown插件',
+        label: 'plugins',
         slot: () =>
           <div>
             <el-alert title="请仅开启需要用的插件以免造成资源浪费!" type="warning" closable={false} style="padding: 0" />
@@ -44,7 +44,7 @@ export default {
           </div>
       },
       showTitle: {
-        label: '展示Logo',
+        label: 'showLogo',
         type: 'switch'
       },
       ...pick(formData, [

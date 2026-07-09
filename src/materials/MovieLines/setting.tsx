@@ -22,7 +22,7 @@ export default {
   formConf(formData: any) {
     return {
       showPoster: {
-        label: '展示电影图片',
+        label: 'showPoster',
         slot: () => {
           return (
             <div>
@@ -40,36 +40,36 @@ export default {
       },
       posterType: {
         when: (formData: any) => formData.showPoster,
-        label: '图片类型',
+        label: 'posterType',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '电影海报',
+              name: 'poster',
               value: 1
             },
             {
-              name: '剧照壁纸',
+              name: 'stillWallpaper',
               value: 2
             }
           ],
           label: 'name',
           value: 'value'
         },
-        tips: '剧照壁纸较适合在横屏的组件中，且图片较高清'
+        tips: 'posterTypeTips'
       },
       asBackground: {
         when: (formData: any) => formData.showPoster && formData.posterType === 2,
-        label: '作为壁纸',
+        label: 'useAsWallpaper',
         type: 'switch',
-        tips: '开启后会清空当前全局壁纸设置，并将电影剧照壁纸应用为全局壁纸'
+        tips: 'applyPosterAsGlobalWallpaperTips'
       },
       showCite: {
-        label: '展示电影名字',
+        label: 'movieName',
         type: 'switch'
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -81,14 +81,14 @@ export default {
         tips: 'durationMinuteTips'
       },
       clickActionType: {
-        label: '点击文本行为',
+        label: 'clickAction',
         type: 'select',
         option: {
           list: [
-            { label: '无', value: 0 },
-            { label: '切换下一个', value: 1 },
-            { label: '跳转查看出处', value: 2 },
-            { label: '复制台词', value: 3 }
+            { label: 'none', value: 0 },
+            { label: 'switchToNext', value: 1 },
+            { label: 'viewDetail', value: 2 },
+            { label: 'copyLine', value: 3 }
           ],
           label: 'label',
           value: 'value'
@@ -104,22 +104,22 @@ export default {
         'padding'
       ]),
       showDecoration: {
-        label: '展示边框装饰',
+        label: 'decoration',
         type: 'switch'
       },
       themeColor: {
         when: (formData: any) => formData.showDecoration,
-        label: '装饰线颜色',
+        label: 'decorationColor',
         slot: () => <standard-color-picker vModel={formData.themeColor} />
       },
       useSpotlight: {
         when: (formData: any) => formData.showPoster && !formData.asBackground,
-        label: '聚光灯滤镜',
+        label: 'spotlightFilter',
         type: 'switch',
         tips: 'spotlightTips'
       },
       maxWidth: {
-        label: '盒子最大宽度',
+        label: 'boxMaxWidth',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',

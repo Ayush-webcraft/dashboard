@@ -20,7 +20,7 @@ export default {
   formConf (formData: any) {
     return {
       formatter: {
-        label: '格式化',
+        label: 'formatter',
         type: 'radio-group',
         attrs: {
           class: 'block-radio-group'
@@ -63,12 +63,12 @@ export default {
         slot: () => <a href={DAYJS_FORMAT_LINK} target="_blank" rel="noreferrer" style="font-weight:bold;">Dayjs格式化参考此处</a>
       },
       chineseWeekDay: {
-        label: '展示中文星期',
+        label: 'chineseWeekday',
         type: 'switch',
         tips: 'chineseWeekDayTips'
       },
       timeZone: {
-        label: '时区',
+        label: 'timeZone',
         type: 'select',
         attrs: {
           placeholder: '请选择时区',
@@ -78,15 +78,15 @@ export default {
         },
         option: {
           list: [
-            { label: '跟随系统', value: '' },
-            { label: '北京', value: 'Asia/Shanghai' },
-            { label: '东京', value: 'Asia/Tokyo' },
-            { label: '纽约', value: 'America/New_York' },
-            { label: '伦敦', value: 'Europe/London' },
-            { label: '巴黎', value: 'Europe/Paris' },
-            { label: '悉尼', value: 'Australia/Sydney' },
-            { label: '迪拜', value: 'Asia/Dubai' },
-            { label: '洛杉矶', value: 'America/Los_Angeles' }
+            { label: 'systemDefault', value: '' },
+            { label: 'asiaShanghai', value: 'Asia/Shanghai' },
+            { label: 'asiaTokyo', value: 'Asia/Tokyo' },
+            { label: 'americaNewYork', value: 'America/New_York' },
+            { label: 'europeLondon', value: 'Europe/London' },
+            { label: 'europeParis', value: 'Europe/Paris' },
+            { label: 'australiaSydney', value: 'Australia/Sydney' },
+            { label: 'asiaDubai', value: 'Asia/Dubai' },
+            { label: 'americaLosAngeles', value: 'America/Los_Angeles' }
           ],
           label: 'label',
           value: 'value'
@@ -94,7 +94,7 @@ export default {
         tips: 'timeZoneTips'
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -114,17 +114,17 @@ export default {
         'padding'
       ]),
       showTTS1: {
-        label: 'TTS文本①',
+        label: 'ttsText1',
         type: 'switch',
-        tips: '展示`回答明天放假吗`TTS文本，API由http://timor.tech/api/holiday/tts/tomorrow提供'
+        tips: 'holidayTomorrowTtsTips'
       },
       showTTS2: {
-        label: 'TTS文本②',
+        label: 'ttsText2',
         type: 'switch',
-        tips: '展示`最近的一个节假日安排`TTS文本，API由http://timor.tech/api/holiday/tts/next提供'
+        tips: 'holidayNextTtsTips'
       },
       ttsFontSize: {
-        label: 'TTS字体大小',
+        label: 'ttsSize',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',

@@ -14,7 +14,7 @@ export default {
   formConf (formData: any) {
     return {
       enableList: {
-        label: '热榜站点',
+        label: 'website',
         type: 'checkbox-group',
         checkbox: {
           list: DAILY_HOT_CLASSIFY,
@@ -29,7 +29,7 @@ export default {
         }
       },
       limit: {
-        label: '列表条目数',
+        label: 'itemCount',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',

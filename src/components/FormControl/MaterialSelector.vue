@@ -21,11 +21,11 @@
       style="margin: 0"
       @click="handleOpenSelector"
     >
-      {{ $t('选择物料') }}
+      {{ $t('select') }}
     </button>
     <easy-dialog
       v-model="dialogVisible"
-      :title="$t('选择物料')"
+      :title="$t('select')"
       width="min(760px, 94vw)"
       height="min(480px, 80vh)"
       @close="close"

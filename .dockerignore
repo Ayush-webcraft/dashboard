@@ -1,0 +1,10 @@
+node_modules
+dist
+crx
+install
+electron
+.git
+.github
+.husky
+backend/node_modules
+*.log

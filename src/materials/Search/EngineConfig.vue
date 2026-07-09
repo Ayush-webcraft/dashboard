@@ -8,10 +8,10 @@
     </div>
     <div class="content">
       <button type="button" class="btn btn-primary btn-small btn-add" @click="handleAddNewEngine">
-        {{ $t('添加') }}
+        {{ $t('addItem') }}
       </button>
       <div class="label-text s-title">
-        {{ $t('当前引擎组') }}
+        {{ $t('currentEngineGroup') }}
       </div>
       <div class="current-engine-wrapper">
         <Draggable
@@ -26,7 +26,7 @@
           <template #item="{ element }">
             <div
               class="engine-list-item"
-              :title="element.iconType !== 'local' ? $t('双击重新编辑') : ''"
+              :title="element.iconType !== 'local' ? $t('doubleClickToEdit') : ''"
               @dblclick="handleEditEngine(element)"
             >
               <img
@@ -54,7 +54,7 @@
         </Draggable>
       </div>
       <div class="label-text s-title">
-        {{ $t('备用引擎组') }}
+        {{ $t('spare') }}
       </div>
       <div class="backup-engine-wrapper">
         <Draggable
@@ -90,27 +90,27 @@
           </template>
         </Draggable>
         <div v-if="showDeleteArea" class="delete-area">
-          {{ $t('拖拽至此处删除') }}
+          {{ $t('dragToHereToDelete') }}
         </div>
       </div>
     </div>
   </div>
   <easy-dialog
     v-model="engineDialogVisible"
-    :title="`${state.formData._id ? $t('编辑') : $t('添加')}${$t('自定义引擎')}`"
+    :title="`${state.formData._id ? $t('edit') : $t('addItem')}${$t('engine')}`"
     width="min(380px, 86vw)"
     height="min(460px, 80vh)"
     custom-class="add-engine-dialog"
   >
     <el-form ref="form" label-width="90px" :model="state.formData" :rules="state.formRules">
-      <el-form-item :label="$t('引擎名称')" prop="name">
-        <el-input v-model="state.formData.name" :placeholder="$t('请输入引擎名称')" />
+      <el-form-item :label="$t('name')" prop="name">
+        <el-input v-model="state.formData.name" :placeholder="$t('engineName')" />
       </el-form-item>
-      <el-form-item :label="$t('引擎地址')" prop="link">
+      <el-form-item :label="$t('link')" prop="link">
         <div class="form-control">
           <el-input
             v-model="state.formData.link"
-            :placeholder="$t('请输入引擎地址')"
+            :placeholder="$t('engineLink')"
             @blur="handleLinkInputBlur"
           />
           <Tips>
@@ -118,12 +118,12 @@
               {{ $t('engineConfigTips1') }} <b>[0]</b> {{ $t('engineConfigTips2') }}
             </div>
             <div class="tips">
-              {{ $t('例如') }}: <b>https://juejin.im/search?query=[0]&type=all</b>
+              {{ $t('eG') }}: <b>https://juejin.im/search?query=[0]&type=all</b>
             </div>
           </Tips>
         </div>
       </el-form-item>
-      <el-form-item :label="$t('引擎图标')" prop="iconType">
+      <el-form-item :label="$t('iconType')" prop="iconType">
         <el-radio-group v-model="state.formData.iconType">
           <el-radio v-for="item in iconTypeList" :key="item.value" :label="item.value">
             {{
@@ -132,15 +132,15 @@
           </el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item v-if="state.formData.iconType === 'network'" :label="$t('图标地址')" prop="iconPath">
+      <el-form-item v-if="state.formData.iconType === 'network'" :label="$t('src')" prop="iconPath">
         <div class="flex-center-y" style="width: 100%;">
-          <el-input v-model="state.formData.iconPath" :placeholder="$t('请输入图标地址')" style="width: 100%;flex: 1" />
+          <el-input v-model="state.formData.iconPath" :placeholder="$t('enterIconUrl')" style="width: 100%;flex: 1" />
           <button type="button" class="btn btn-small btn-primary" style="height: 32px;padding: 0 8px;" @click="showIconPicker">
-            {{ $t('图标库') }}
+            {{ $t('icons') }}
           </button>
         </div>
       </el-form-item>
-      <el-form-item :label="$t('图标预览')">
+      <el-form-item :label="$t('preview')">
         <div class="icon-img-preview-box">
           <template v-if="showIconPreview">
             <img
@@ -168,10 +168,10 @@
     <template #footer>
       <div class="footer" style="text-align: right; padding: 12px">
         <button type="button" class="btn" @click="close">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button type="button" class="btn btn-primary" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>
@@ -190,15 +190,15 @@ import { useI18n } from 'vue-i18n'
 import request from '@/utils/request'
 const iconTypeList = [
   {
-    label: 'API获取',
+    label: 'api',
     value: 'api'
   },
   {
-    label: '网络图片',
+    label: 'online',
     value: 'network'
   },
   {
-    label: '文字图标',
+    label: 'textIcon',
     value: 'text'
   }
 ]
@@ -258,7 +258,7 @@ export default defineComponent({
         pointEl = document.elementFromPoint(clientX, clientY)
       }
       if (pointEl?.className === 'delete-area') {
-        if (window.confirm(t('是否删除该自定义引擎'))) {
+        if (window.confirm(t('confirmDeleteEngine'))) {
           const { newIndex } = e
           cloneEngineList.value.splice(newIndex, 1)
         }
@@ -338,19 +338,19 @@ export default defineComponent({
             }
           }
           if (state.formData._id) {
-            // 编辑
+            // Edit
             const index = cloneEngineList.value.findIndex((item) => item._id === state.formData._id)
             if (~index) {
               cloneEngineList.value[index] = { ...toRaw(state.formData) }
             } else {
-              // 现在允许编辑local引擎，根据Name查找
+              // Now allows editing local engines, looked up by Name
               const nameIndex = cloneEngineList.value.findIndex((item) => item.name === state.formData.name)
               if (~nameIndex) {
                 cloneEngineList.value[nameIndex] = { ...toRaw(state.formData) }
               }
             }
           } else {
-            // 添加
+            // Add
             state.formData._id = uid()
             cloneEngineList.value.push({ ...toRaw(state.formData) })
           }

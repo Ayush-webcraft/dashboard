@@ -58,7 +58,7 @@ textarea {
     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
-/* 浮动 */
+/* Float */
 .clear {
   zoom: 1;
 }
@@ -74,7 +74,7 @@ textarea {
   float: right;
 }
 
-/* 溢出省略号 */
+/* Overflow ellipsis */
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -71,7 +71,7 @@ export default defineComponent({
           throw new Error('API error')
         }
       } catch {
-        ElNotification({ title: t('提示'), type: 'error', message: t('获取天气失败，请检查配置!') })
+        ElNotification({ title: t('tips'), type: 'error', message: t('weatherFetchError') })
       }
     }
 
@@ -102,14 +102,14 @@ export default defineComponent({
           }
         }
       } catch {
-        ElNotification({ title: t('提示'), type: 'error', message: t('无法识别出城市，请重新配置') })
+        ElNotification({ title: t('tips'), type: 'error', message: t('cityNotFoundError') })
       }
       getWeather()
     }, {
       immediate: true
     })
 
-    // 定时刷新
+    // Periodic refresh
     let timer: number | null
     const refreshTimer = () => {
       const refreshDuration = Math.max((props.componentSetting.duration || 120), 60) * 60 * 1000

@@ -20,7 +20,7 @@ export default {
   formConf (formData: any) {
     return {
       boxSize: {
-        label: '图标容器尺寸',
+        label: 'iconBoxSize',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -32,7 +32,7 @@ export default {
         tips: 'boxSizeTips'
       },
       iconSize: {
-        label: '图标尺寸',
+        label: 'iconSize',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -43,7 +43,7 @@ export default {
         unit: 'px'
       },
       boxRadius: {
-        label: '容器圆角',
+        label: 'containerRadius',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -60,14 +60,14 @@ export default {
         'fontFamily',
       ]),
       boxShadow: {
-        label: '容器阴影',
+        label: 'containerShadow',
         type: 'input',
         attrs: {
           placeholder: '请输入合法的box-shadow值'
         }
       },
       maxWidth: {
-        label: '最大宽度',
+        label: 'maxWidth',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -78,20 +78,20 @@ export default {
         unit: 'px'
       },
       jumpType: {
-        label: '网页跳转方式',
+        label: 'jumpType',
         type: 'radio-group',
         radio: {
           list: [
             {
-              name: '新窗口打开',
+              name: 'newWindow',
               value: 1
             },
             {
-              name: '当前页跳转',
+              name: 'currentPage',
               value: 2
             },
             {
-              name: '页面内Iframe打开',
+              name: 'openInPageIframe',
               value: 3
             }
           ],
@@ -100,7 +100,7 @@ export default {
         }
       },
       tileTitleLines: {
-        label: '文本最大行数',
+        label: 'maxLines',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -110,21 +110,21 @@ export default {
         },
       },
       closeClickOutside: {
-        label: '弹窗快速关闭',
+        label: 'fastClose',
         type: 'switch',
         tips: 'closeClickOutsideTips'
       },
       folderBg: {
-        label: '弹窗背景色',
+        label: 'dialogBackgroundColor',
         slot: () => <standard-color-picker vModel={formData.folderBg} show-alpha />
       },
       hiddenAddBtn: {
-        label: '隐藏添加按钮',
+        label: 'hideAddButton',
         type: 'switch',
         tips: 'hiddenAddBtnTips'
       },
       disabledDrag: {
-        label: '禁用拖动',
+        label: 'disableDrag',
         type: 'switch',
         tips: 'disabledDragTips'
       }

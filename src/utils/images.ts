@@ -39,7 +39,7 @@ export function getBase64ByAjax(url: string, formatter = 'image/png', processFn?
 
 export function getTransparentIcon(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    // 目标第三方服务不需要接收协议前缀
+    // The target third-party service doesn't need the protocol prefix
     // const target = `https://favicon.cccyun.cc/${url.replace(/http(s)?:\/\//, '')}`
     const target = getTargetIconV2(url)
     getBase64ByAjax(target, 'image/x-icon', null, 5000).then((base64: any) => {
@@ -119,7 +119,7 @@ export function cutImageBase64(file: File, wid: number, quality = 1) {
       const scale = w / h
       w = wid || w;
       h = w / scale;
-      // 生成canvas
+      // Create the canvas
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
       canvas.setAttribute('width', w + 'px');
@@ -145,7 +145,7 @@ export function svgBase64ToPng(svgBase64: string, width: number, quality = 1): P
       const scale = w / h
       w = width || w;
       h = w / scale;
-      // 生成canvas
+      // Create the canvas
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
       canvas.setAttribute('width', w + 'px');

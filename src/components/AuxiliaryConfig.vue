@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('辅助功能')"
+    :title="$t('auxiliaryConfig')"
     width="min(540px, 98vw)"
     height="min(620px, 90vh)"
     custom-class="auxiliary-config-dialog"
@@ -75,31 +75,31 @@ export default defineComponent({
     const activeName = ref('TabControl')
     const tabList = ref([
       {
-        label: '多页设置',
+        label: 'tabs',
         cName: 'TabControl'
       },
       {
-        label: '动画滤镜',
+        label: 'animateFilter',
         cName: 'EffectSelector'
       },
       {
-        label: '常见问题',
+        label: 'faq',
         cName: 'FAQ'
       },
       {
-        label: '导入导出',
+        label: 'export2',
         cName: 'ImportExport'
       },
       {
-        label: '关于项目',
+        label: 'about',
         cName: 'About'
       },
       {
-        label: '更新日志',
+        label: 'changelog',
         cName: 'ChangeLog'
       },
       ...(isPreviewMode ? [] : [{
-        label: '清除数据',
+        label: 'reset',
         cName: 'CleanCache'
       }])
     ])

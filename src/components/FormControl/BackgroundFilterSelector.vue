@@ -1,18 +1,18 @@
 <template>
   <div class="row">
     <div class="label">
-      {{ $t('滤镜') }}
+      {{ $t('filter') }}
     </div>
     <div class="content">
       <el-radio-group v-model="mode" @change="handleUpdateValue">
         <el-radio :label="1">
-          {{ $t('无') }}
+          {{ $t('none') }}
         </el-radio>
         <el-radio :label="2">
-          {{ $t('亮度') }}
+          {{ $t('brightness') }}
         </el-radio>
         <el-radio :label="3">
-          {{ $t('高斯模糊') }}
+          {{ $t('blur') }}
         </el-radio>
       </el-radio-group>
       <div v-if="mode === 2">
@@ -45,11 +45,11 @@
   </div>
   <div v-if="isFullScreen" class="row">
     <div class="label" data-badge>
-      {{ $t('动画滤镜') }}
+      {{ $t('animateFilter') }}
     </div>
     <div class="content">
       <div class="effect-tips">
-        {{ $t('请前往辅助功能设置') }}
+        {{ $t('turnToAuxiliaryConfig') }}
       </div>
     </div>
   </div>

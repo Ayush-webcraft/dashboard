@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('主题预设')"
+    :title="$t('themePreset')"
     width="min(900px, 98vw)"
     height="min(512px, 90vh)"
     custom-class="theme-preset-dialog"
@@ -9,7 +9,7 @@
     <div class="welcome">
       Howdy!
       <p class="tips-text">
-        {{ $t('请选择一个预设主题') }}
+        {{ $t('pleaseSelectADefaultTheme') }}
       </p>
       <Icon name="earth" style="margin-right: 4px" />
       <el-select v-model="lang" placeholder="Language" style="width: 120px">
@@ -60,10 +60,10 @@
     <template #footer>
       <div class="footer" style="text-align: right; padding: 12px">
         <button type="button" class="btn btn-text" @click="close">
-          {{ $t('不用了') }}
+          {{ $t('skip') }}
         </button>
         <button type="button" class="btn btn-primary" :disabled="!activeTheme" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>
@@ -114,59 +114,59 @@ export default defineComponent({
       dialogVisible.value = false
     }
 
-    // PC端预设
+    // Desktop presets
     const themeList1 = [
       {
         label: 'Simple',
         json: Simple,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/simple.png',
-        desc: '简约'
+        desc: 'conciseMode'
       },
       {
         label: 'Basic',
         json: Base,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/base.png',
-        desc: '基础 x 动态壁纸'
+        desc: 'dynamicWallpaperBasicMode'
       },
       {
         label: 'Multiple',
         json: Multiple,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/multi.png',
-        desc: '多组件预设'
+        desc: 'multipleMaterialPreset'
       },
       {
         label: 'TabPages',
         json: Tabs,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/tabs.gif',
-        desc: '标签页预设'
+        desc: 'tabsPagePreset'
       },
       {
         label: 'MovieLine',
         json: MovieLines,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/movie-lines.png',
-        desc: '电影壁纸预设'
+        desc: 'movieLinesPreset'
       },
       {
         label: 'Module',
         json: Module,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/module.png',
-        desc: '模块组件预设'
+        desc: 'moduleViewMode'
       }
     ]
 
-    // 手机端预设
+    // Mobile presets
     const themeList2 = [
       {
         label: 'Mobile',
         json: Mobile,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/mobile.png',
-        desc: '手机端预设#1'
+        desc: 'mobilePreset1'
       },
       {
         label: 'Mobile MovieLine',
         json: MobilePro,
         img: 'https://cdn.kongfandong.cn/img/howdz-theme/mobile-pro.png',
-        desc: '手机端预设#2'
+        desc: 'mobilePreset2'
       }
     ]
 
@@ -201,9 +201,9 @@ export default defineComponent({
         ])
         store.updateGlobal(global)
         ElNotification({
-          title: t('提示'),
+          title: t('tips'),
           type: 'success',
-          message: t('选择预设主题成功')
+          message: t('selectPresetThemeSuccess')
         })
         if (global.loadHarmonyOSFont) {
           loadHarmonyOSFont()

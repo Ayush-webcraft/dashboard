@@ -12,7 +12,7 @@ export default {
   formConf (formData: any) {
     return {
       customText: {
-        label: '自定义文本',
+        label: 'customContent',
         type: 'input',
         attrs: {
           placeholder: '可配置显示自定义文本'

@@ -50,7 +50,7 @@
         >
       </div>
       <div class="icon-wrapper">
-        <div v-if="showRefreshBtn && (backgroundURL.includes('randomPhoto') || backgroundURL.includes('localImg'))" class="icon-item" :title="$t('刷新壁纸')">
+        <div v-if="showRefreshBtn && (backgroundURL.includes('randomPhoto') || backgroundURL.includes('localImg'))" class="icon-item" :title="$t('refreshWallpaper')">
           <Icon
             name="refresh"
             class="btn-refresh"
@@ -58,14 +58,14 @@
             @click="refresh"
           />
         </div>
-        <div v-if="showRefreshBtn && backgroundURL.includes('randomPhoto')" class="icon-item" :title="$t('喜欢')">
+        <div v-if="showRefreshBtn && backgroundURL.includes('randomPhoto')" class="icon-item" :title="$t('like')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             width="20"
             height="20"
             :class="['btn-heart', hasLike && 'active']"
-            :title="$t('喜欢')"
+            :title="$t('like')"
             @click="like"
           >
             <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z" />
@@ -152,18 +152,18 @@ watch(
   () => backgroundURL.value,
   () => updateBackground()
 )
-let directToUnsplash = false // 是否直连到Unsplash获取随机图
+let directToUnsplash = false // Whether to connect directly to Unsplash for random images
 const updateBackground = async () => {
   const val = backgroundURL.value
   if (val && val.includes('randomPhoto')) {
     try {
       let result
       if (val.includes('personal')) {
-        // 从个人壁纸库随机一张
+        // Pick a random image from the personal wallpaper collection
         const index = ~~(Math.random() * store.wallpaperCollectionList.length)
         result = store.wallpaperCollectionList[index]
         if (result === realBackgroundURL.value) {
-          // 随机出的图片跟原本一致会导致onload不执行
+          // If the randomly picked image is the same as the current one, onload won't fire
           setTimeout(() => {
             if (bgDom.value.style) bgDom.value.style.filter = 'blur(0)'
           }, 500)
@@ -171,7 +171,7 @@ const updateBackground = async () => {
       } else {
         let target = val
         if (import.meta.env.DEV) target = target.replace('https://kongfandong.cn', '') // For Dev Proxy
-        // Unsplash优先使用直连获取
+        // Prefer a direct connection to Unsplash
         if (target.includes('keyword=') && directToUnsplash) {
           try {
             const search = new URLSearchParams(target.split('?')[1])
@@ -184,7 +184,7 @@ const updateBackground = async () => {
             if (res.status === 404) throw new Error('404')
             result = isMirror ? res.url.replace('images.unsplash.com', 'dogefs.s3.ladydaily.com/~/source/unsplash') :res.url
           } catch {
-            directToUnsplash = false // 当直连Unsplash失败时直接API接口
+            directToUnsplash = false // Fall back to the API endpoint when the direct Unsplash connection fails
             const res = await request({ url: `${target}&json=1` })
             result = res.url
           }
@@ -306,16 +306,16 @@ const hanleImgError = async () => {
 
 const handleVideoError = () => {
   ElNotification({
-    title: t('错误'),
+    title: t('error'),
     type: 'error',
-    message: t('动态视频壁纸加载出错，请重试或更换视频源')
+    message: t('videoWallpaperLoadError')
   })
 }
 
 const like = () => {
   let bgURL = realBackgroundURL.value
   if (bgURL.includes('ixid=')) {
-    // unsplash随机图的ixid每次不一样，为识别为同一张图需去除
+    // Unsplash random images have a different ixid each time; strip it to recognize duplicates
     bgURL = bgURL.replace(/&ixid=.+?&/, '&')
   }
   const index = store.wallpaperCollectionList.indexOf(bgURL)
@@ -333,7 +333,7 @@ const like = () => {
 const hasLike = computed(() => {
   let bgURL = realBackgroundURL.value
   if (bgURL.includes('ixid=')) {
-    // unsplash随机图的ixid每次不一样，为识别为同一张图需去除
+    // Unsplash random images have a different ixid each time; strip it to recognize duplicates
     bgURL = bgURL.replace(/&ixid=.+?&/, '&')
   }
   return ~store.wallpaperCollectionList.indexOf(bgURL)

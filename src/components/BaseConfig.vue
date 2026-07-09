@@ -1,36 +1,36 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="editId ? $t('编辑组件') : $t('添加组件')"
+    :title="editId ? $t('editComponent') : $t('addComponent')"
     width="min(800px, 98vw)"
     height="min(600px, 90vh)"
   >
     <div class="main-config">
       <div class="base-config-wrapper">
         <div class="config-title">
-          {{ $t('基础配置') }}
+          {{ $t('baseConfig') }}
         </div>
         <WarnLock />
         <div class="form-wrapper scrollbar1">
           <el-form ref="form" label-position="top" :model="state.formData">
-            <el-form-item :label="$t('物料组件')">
+            <el-form-item :label="$t('material')">
               <MaterialSelector
                 v-model="state.formData.material"
                 :disabled="!!editId"
                 @change="updateDefaultSetting();updateComponentSetting(false)"
               />
             </el-form-item>
-            <el-form-item :label="$t('定位模式')">
+            <el-form-item :label="$t('positionMode')">
               <el-radio-group
                 v-model="state.formData.position"
                 :disabled="!!editId"
                 style="margin-right: 8px"
               >
                 <el-radio :label="1">
-                  {{ $t('栅格模式') }}
+                  {{ $t('gridLayout') }}
                 </el-radio>
                 <el-radio :label="2">
-                  {{ $t('Fixed模式') }}
+                  {{ $t('fixedMode') }}
                 </el-radio>
               </el-radio-group>
               <Tips>
@@ -40,7 +40,7 @@
                 </div>
               </Tips>
             </el-form-item>
-            <el-form-item v-if="state.formData.position === 2" :label="$t('Fixed方向')">
+            <el-form-item v-if="state.formData.position === 2" :label="$t('duration')">
               <div class="flex-center-y">
                 <PositionSelector
                   v-model="state.formData.affixInfo.mode"
@@ -78,7 +78,7 @@
                 </Tips>
               </div>
             </el-form-item>
-            <el-form-item :label="$t('组件尺寸')">
+            <el-form-item :label="$t('componentSize')">
               <div class="form-row-control">
                 <div class="label">
                   Width
@@ -117,7 +117,7 @@
                 </div>
               </div>
             </el-form-item>
-            <el-form-item :label="$t('背景')">
+            <el-form-item :label="$t('background')">
               <BackgroundSelector
                 v-model:background="state.formData.background"
                 v-model:backdropFilter="state.formData.backdropFilter"
@@ -131,10 +131,10 @@
                 v-model:filter="state.formData.backgroundFilter"
               />
             </el-form-item>
-            <el-form-item :label="$t('其他配置')">
+            <el-form-item :label="$t('otherConfig')">
               <div class="form-row-control">
                 <div class="label">
-                  {{ $t('圆角') }}
+                  {{ $t('radius') }}
                 </div>
                 <div class="content">
                   <el-input-number
@@ -149,7 +149,7 @@
               </div>
               <div class="form-row-control">
                 <div class="label">
-                  {{ $t('阴影') }}
+                  {{ $t('shadow') }}
                 </div>
                 <div class="content">
                   <el-input
@@ -178,12 +178,12 @@
               </div>
               <div class="form-row-control">
                 <div class="label">
-                  {{ $t('ID属性注入') }}
+                  {{ $t('id') }}
                 </div>
                 <div class="content">
                   <el-input
                     v-model="state.formData.customId"
-                    :placeholder="$t('组件自定义ID')"
+                    :placeholder="$t('componentCustomId')"
                     clearable
                   />
                 </div>
@@ -195,7 +195,7 @@
       </div>
       <div class="component-config-wrapper">
         <div class="config-title">
-          {{ $t('组件配置') }}<span class="material-text">#{{ state.formData.material }}</span>
+          {{ $t('componentSetting') }}<span class="material-text">#{{ state.formData.material }}</span>
         </div>
         <div v-if="state.formData.componentSetting" class="form-wrapper scrollbar1">
           <StandardForm
@@ -210,10 +210,10 @@
     <template #footer>
       <div class="footer" style="text-align: right; padding: 12px">
         <button class="btn" type="button" @click="close">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button class="btn btn-primary" type="button" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>
@@ -337,9 +337,9 @@ export default defineComponent({
       if (store.isLock) {
         store.updateIsLock(false)
         ElNotification({
-          title: t('提示'),
+          title: t('tips'),
           type: 'success',
-          message: t('已自动进入编辑模式，编辑模式可进行组件拖拽与右键菜单配置')
+          message: t('autoEnteredEditModeTip')
         })
       }
     }

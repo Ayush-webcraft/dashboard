@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="title">
-      {{ $t('多页设置') }}
+      {{ $t('tabs') }}
     </div>
     <div class="content">
       <el-alert
@@ -13,21 +13,21 @@
       <div class="list-wrapper">
         <div v-for="(item, index) in tabList" :key="item.id" class="item" :data-idx="index + 1">
           <div class="name" @dblclick="handleRename(item.id)">
-            {{ item.name || $t('未命名') }}
+            {{ item.name || $t('untitled') }}
           </div>
           <div class="operation-wrapper">
             <button v-if="item.selected" class="operation btn btn-small btn-info" disabled>
-              {{ $t('当前应用') }}
+              {{ $t('current') }}
             </button>
             <button v-if="!item.selected" class="operation btn btn-small btn-primary" @click="handleSelected(item.id)">
-              {{ $t('应用') }}
+              {{ $t('apply') }}
             </button>
             <button
               class="operation btn btn-small btn-warning"
               style="margin-left: 4px"
               @click="handleCopy(item)"
             >
-              {{ $t('复制') }}
+              {{ $t('copy') }}
             </button>
             <button
               v-if="!item.selected"
@@ -35,35 +35,35 @@
               style="margin-left: 4px"
               @click="handleDel(item.id)"
             >
-              {{ $t('删除') }}
+              {{ $t('delete') }}
             </button>
           </div>
         </div>
         <div class="btn-add-wrapper">
           <button class="btn btn-primary" @click="handleAdd">
-            <Icon name="add" size="1.2em" style="margin-right: 4px" /> {{ $t('新增') }}
+            <Icon name="add" size="1.2em" style="margin-right: 4px" /> {{ $t('add') }}
           </button>
         </div>
       </div>
     </div>
 
     <div class="title" style="margin-top: 20px">
-      {{ $t('其他设置') }}
+      {{ $t('otherSettings') }}
     </div>
     <div class="content">
       <el-form label-width="110px">
-        <el-form-item :label="$t('方向键切换')">
+        <el-form-item :label="$t('keyboad')">
           <div class="flex-center-y" style="height: 100%">
             <el-switch v-model="enableKeydownSwitchTab" />
             <Tips :content="$t('tabsKeyboardSwitchTips')" />
           </div>
         </el-form-item>
-        <el-form-item :label="$t('展示切换按钮')">
+        <el-form-item :label="$t('switchButton')">
           <div class="flex-center-y" style="height: 100%">
             <el-select v-model="showTabSwitchBtn">
-              <el-option :value="false" :label="$t('隐藏')" />
-              <el-option :value="true" :label="$t('显示(默认样式)')" />
-              <el-option :value="2" :label="$t('显示(文字样式)')" />
+              <el-option :value="false" :label="$t('hide')" />
+              <el-option :value="true" :label="$t('showDefaultStyle')" />
+              <el-option :value="2" :label="$t('showTextStyle')" />
             </el-select>
             <Tips :content="$t('tabsSwitchBtnTips')" />
           </div>
@@ -84,14 +84,14 @@ const tabList = computed(() => store.tabList)
 const { t } = useI18n()
 onMounted(() => {
   if (!tabList.value || tabList.value.length === 0) {
-    // 设置初始tabList
+    // Set up the initial tabList
     const tabList = [{ id: uid(), selected: true }]
     store.updateTabList(tabList)
   }
 })
 
 const handleRename = (id: string) => {
-  const name = window.prompt(t('重命名标签页'))
+  const name = window.prompt(t('renameTabs'))
   if (name) {
     const _tabList = JSON.parse(JSON.stringify(tabList.value))
     const index = _tabList.findIndex((item: any) => item.id === id)
@@ -123,7 +123,7 @@ const handleAdd = () => {
   }
   const _tabList = JSON.parse(JSON.stringify(tabList.value))
   if (_tabList.length > 10) {
-    alert(t('标签页已达上限，无法添加'))
+    alert(t('canNotAddTabsAnyMore'))
     return
   }
   _tabList.push(newTab)
@@ -146,7 +146,7 @@ const handleCopy = (item: any) => {
   }
   const _tabList = JSON.parse(JSON.stringify(tabList.value))
   if (_tabList.length > 10) {
-    alert(t('标签页已达上限，无法添加'))
+    alert(t('canNotAddTabsAnyMore'))
     return
   }
   _tabList.push(newTab)
@@ -154,7 +154,7 @@ const handleCopy = (item: any) => {
 }
 
 const handleDel = (id: string) => {
-  if (window.confirm(t('删除后不可恢复, 确认要删除该标签页?'))) {
+  if (window.confirm(t('confirmToDelete'))) {
     const _tabList = JSON.parse(JSON.stringify(tabList.value))
     const index = _tabList.findIndex((item: any) => item.id === id)
     if (~index) {

@@ -47,7 +47,7 @@ export default defineComponent({
       let formatterText = props.componentSetting.formatter === '自定义' ? props.componentSetting.custom : props.componentSetting.formatter
       try {
         if (props.componentSetting.chineseWeekDay && formatterText.includes('dddd')) {
-          // 强制转换星期为中文
+          // Force the weekday to render in Chinese
           const chineseWeek = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
           formatterText = formatterText.replace('dddd', () => {
             try {

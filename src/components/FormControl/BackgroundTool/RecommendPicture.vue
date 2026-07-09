@@ -1,20 +1,20 @@
 <template>
   <button type="button" class="btn btn-small btn-primary" style="margin: 0;margin-right: 5px;" @click="handleOpenSelector">
-    {{ $t('今日壁纸推荐') }}
+    {{ $t('dailyRecommend') }}
   </button>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('今日壁纸推荐')"
+    :title="$t('dailyRecommend')"
     width="min(760px, 94vw)"
     height="min(560px, 80vh)"
   >
     <div v-if="beginLoad" class="wrapper">
       <div class="tab-title-wrapper">
         <div :class="['title', tabIndex === 1 && 'active']" @click="tabIndex = 1">
-          {{ $t('必应壁纸') }}
+          {{ $t('bingWallpaper') }}
         </div>
         <div :class="['title', tabIndex === 3 && 'active']" @click="tabIndex = 3">
-          {{ $t('360壁纸') }}
+          {{ $t('wallpaper360') }}
         </div>
         <div :class="['title', tabIndex === 2 && 'active']" @click="tabIndex = 2">
           UNSPLAH
@@ -101,14 +101,14 @@ const p360List = ref<ListItem[]>([])
 const page = ref(1)
 
 const p360Catalog = [
-  { label: '风景', value: 9 },
+  { label: 'views', value: 9 },
   { label: '4K', value: 36 },
-  { label: '清新', value: 15 },
-  { label: '萌宠', value: 14 },
-  { label: '游戏', value: 5 },
-  { label: '汽车', value: 12 },
-  { label: '时尚', value: 10 },
-  { label: '体育', value: 16 }
+  { label: 'fresh', value: 15 },
+  { label: 'animal', value: 14 },
+  { label: 'game', value: 5 },
+  { label: 'car', value: 12 },
+  { label: 'fashion', value: 10 },
+  { label: 'sport', value: 16 }
 ]
 const p360CatalogActive = ref(9)
 

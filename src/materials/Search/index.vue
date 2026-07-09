@@ -119,7 +119,7 @@
         >
           <div v-if="bookmarkLink && bookmarkLink.length > 0" class="bookmark-link-wrapper">
             <div class="title">
-              {{ $t('来自书签') }}
+              {{ $t('fromBookmark') }}
             </div>
             <div class="link-list">
               <div v-for="(item,index) in bookmarkLink" :key="(item.title || '') + index" class="link-list-item" @click="handleLinkBookmarkJump(item)">
@@ -148,7 +148,7 @@
           </div>
           <div v-if="!searchKey && componentSetting.rememberHistory" class="clear-history">
             <div class="clear-history-btn" @click="clearHistory">
-              <Icon name="delete" size="1em" style="margin-right: 2px" /> {{ $t('清空历史记录') }}
+              <Icon name="delete" size="1em" style="margin-right: 2px" /> {{ $t('clearHistory') }}
             </div>
           </div>
         </div>
@@ -156,10 +156,10 @@
       <transition name="fadeInUp" :css="!isLowPreformance">
         <div v-show="showTabTips" class="tab-tooltips">
           <div class="main">
-            {{ $t('按Tab键可快速切换搜索引擎') }}
+            {{ $t('pressTabKeyToSwitchNext') }}
           </div>
           <div class="no-more" @click.stop="hanldeNoShowMore">
-            {{ $t('不再提示') }}
+            {{ $t('dontShowAgain') }}
           </div>
         </div>
       </transition>
@@ -235,7 +235,7 @@ const handleInputKeyDown = (e: KeyboardEvent) => {
   const specialKeyArr = [9, 13, 38, 40]
   if (specialKeyArr.includes(e.keyCode)) {
     if (e.keyCode === 9) {
-      // Tab键
+      // Tab key
       if (e.shiftKey) {
         activeEngine.value =
           activeEngine.value <= 0
@@ -251,7 +251,7 @@ const handleInputKeyDown = (e: KeyboardEvent) => {
       }
     }
     if (e.keyCode === 13) {
-      // 回车键
+      // Enter key
       handleSearchBtnClick()
     }
     if (e.keyCode === 38) {
@@ -341,7 +341,7 @@ const handleLinkBookmarkJump = (item: Bookmark) => {
 
 async function linkSearch() {
   if (!searchKey.value) {
-    // 用于搜索历史
+    // Used for search history
     if (props.componentSetting.rememberHistory) {
       linkSearchArr.value = props.componentSetting.rememberHistoryList || []
     } else {
@@ -352,7 +352,7 @@ async function linkSearch() {
   }
   if (!props.componentSetting.keywordLink) return
 
-  // 同时搜索书签
+  // Also search bookmarks
   bookmarkLink.value = []
   try {
     linkSearchArrActive.value = -1

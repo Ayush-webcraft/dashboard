@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('全局设置')"
+    :title="$t('globalSetting')"
     width="min(480px, 98vw)"
     height="min(520px, 90vh)"
     custom-class="global-config-dialog"
@@ -9,7 +9,7 @@
   >
     <WarnLock />
     <el-form ref="form" label-position="top">
-      <el-form-item :label="$t('壁纸')">
+      <el-form-item :label="$t('wallpaper')">
         <BackgroundSelector
           v-model:background="state.formData.background"
           is-full-screen
@@ -21,10 +21,10 @@
           is-full-screen
         />
       </el-form-item>
-      <el-form-item :label="$t('杂项')">
+      <el-form-item :label="$t('misc')">
         <div class="form-row-control">
           <div class="label">
-            {{ $t('语言') }}
+            {{ $t('language') }}
           </div>
           <div class="content">
             <el-select v-model="state.formData.lang">
@@ -39,7 +39,7 @@
         </div>
         <div class="form-row-control">
           <div class="label">
-            {{ $t('组件间隔') }}
+            {{ $t('gutter') }}
           </div>
           <div class="content flex-center-y">
             <el-input-number
@@ -54,7 +54,7 @@
         </div>
         <div class="form-row-control">
           <div class="label">
-            {{ $t('全局字体') }}
+            {{ $t('globalFont') }}
           </div>
           <div class="content">
             <div>
@@ -70,19 +70,19 @@
                 <el-checkbox v-model="state.formData.loadHarmonyOSFont">
                   加载鸿蒙字体(外部)
                 </el-checkbox>
-                <Tips :content="$t('勾选此项会在页面进入后加载鸿蒙字体,然后可以在字体选择器中选择或输入HarmonyOS_Regular,初次设置需刷新页面')" />
+                <Tips :content="$t('harmonyFontTips')" />
               </div>
             </div>
           </div>
         </div>
         <div class="form-row-control">
           <div class="label">
-            {{ $t('网站标题') }}
+            {{ $t('siteTitle') }}
           </div>
           <div class="content flex-center-y">
             <el-input
               v-model="state.formData.siteTitle"
-              :placeholder="$t('自定义网站的标题')"
+              :placeholder="$t('siteTilte')"
               clearable
               style="width: 214px"
             />
@@ -91,7 +91,7 @@
         </div>
         <div class="form-row-control">
           <div class="label">
-            {{ $t('网站Icon') }}
+            {{ $t('siteIcon') }}
           </div>
           <div class="content flex-center-y">
             <div class="icon-wrapper">
@@ -100,14 +100,14 @@
               <div v-if="state.formData.siteIcon" class="reset-text" @click="state.formData.siteIcon = ''">Clean</div>
             </div>
             <button type="button" class="btn btn-small btn-primary" style="height: 26px;padding: 0 8px;margin-right: 0;" @click="showIconPicker">
-              {{ $t('图标库') }}
+              {{ $t('icons') }}
             </button>
             <Tips :content="$t('siteIconTips')" />
           </div>
         </div>
         <div class="form-row-control">
-          <div class="label ellipsis" :title="$t('禁用动画')">
-            {{ $t('禁用动画') }}
+          <div class="label ellipsis" :title="$t('disbaleAnimation')">
+            {{ $t('disbaleAnimation') }}
           </div>
           <div class="content flex-center-y">
             <el-switch v-model="state.formData.disabledDialogAnimation" style="width: 214px" />
@@ -115,8 +115,8 @@
           </div>
         </div>
         <div class="form-row-control">
-          <div class="label ellipsis" :title="$t('菜单按钮')">
-            {{ $t('菜单按钮') }}
+          <div class="label ellipsis" :title="$t('menuButton')">
+            {{ $t('menuButton') }}
           </div>
           <div class="content flex-center-y">
             <el-switch v-model="state.formData.showMenuBtn" style="width: 214px" />
@@ -124,7 +124,7 @@
           </div>
         </div>
       </el-form-item>
-      <el-form-item :label="$t('全局CSS注入')">
+      <el-form-item :label="$t('injectCss')">
         <el-input
           v-model="state.formData.css"
           type="textarea"
@@ -132,7 +132,7 @@
           :placeholder="$t('injectCSSPlaceholder')"
         />
       </el-form-item>
-      <el-form-item :label="$t('全局JS注入')">
+      <el-form-item :label="$t('injectJavascript')">
         <el-input
           v-model="state.formData.js"
           type="textarea"
@@ -144,10 +144,10 @@
     <template #footer>
       <div class="footer" style="text-align: right; padding: 12px">
         <button type="button" class="btn" @click="close">
-          {{ $t('取消') }}
+          {{ $t('cancel') }}
         </button>
         <button type="button" class="btn btn-primary" @click="submit">
-          {{ $t('确认') }}
+          {{ $t('submit') }}
         </button>
       </div>
     </template>
@@ -206,7 +206,7 @@ export default defineComponent({
         if (data.length < 128 * 1024) {
           state.formData.siteIcon = data
         } else {
-          alert(t('图标大小不能超过128k'))
+          alert(t('iconSizeCannotExceed128k'))
         }
       } catch {
         //

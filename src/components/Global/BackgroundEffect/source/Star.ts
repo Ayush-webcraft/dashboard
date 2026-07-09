@@ -163,10 +163,10 @@ export default class StarEffect {
 
   resize() {
     if (this.timer) {
-      clearTimeout(this.timer)
+      window.clearTimeout(this.timer)
       this.timer = null
     }
-    this.timer = setTimeout(() => {
+    this.timer = window.setTimeout(() => {
       for (let i = 0; i < this.starNum; i++) {
         this.stars[i] = new Star(this.ctx, i, Math.floor(Math.random() * this.width), Math.floor(Math.random() * this.height))
       }
@@ -181,8 +181,8 @@ export default class StarEffect {
     this.mouseMoving = true
     this.mouseX = e.clientX
     this.mouseY = e.clientY
-    if (this.mouseMoveChecker) clearInterval(this.mouseMoveChecker)
-    this.mouseMoveChecker = setTimeout(() => {
+    if (this.mouseMoveChecker) window.clearTimeout(this.mouseMoveChecker)
+    this.mouseMoveChecker = window.setTimeout(() => {
       this.mouseMoving = false
     }, 100)
   }

@@ -5,7 +5,7 @@
     </p>
     <div class="button-wrapper">
       <button class="btn btn-danger" @click="showConfirm">
-        {{ $t('删除所有数据') }}
+        {{ $t('clearData') }}
       </button>
     </div>
   </div>

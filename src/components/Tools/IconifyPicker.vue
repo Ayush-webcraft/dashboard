@@ -1,7 +1,7 @@
 <template>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('图标选择器')"
+    :title="$t('iconPicker')"
     width="min(840px, 98vw)"
     height="min(580px, 90vh)"
     :zIndex="3000"
@@ -11,13 +11,13 @@
       <div class="search-box flex-center-y">
         <el-input
           v-model="searchText"
-          :placeholder="$t('请以英文输入搜索关键词, 例如: Github')"
+          :placeholder="$t('iconSearchPlaceholder')"
           clearable
           @keyup.enter="onSearch"
           @clear="reset"
         />
         <button type="button" :class="['btn', 'btn-primary']" :disabled="!canSearch" @click="onSearch">
-          {{ $t('搜索') }}
+          {{ $t('search') }}
         </button>
       </div>
       <div class="result-wrapper">
@@ -28,7 +28,7 @@
         </div>
         <div v-else-if="error" class="error">
           <p class="tips">
-            - {{ $t('出现未知异常') }} - 
+            - {{ $t('unknownError') }} - 
           </p>
         </div>
         <div v-else-if="!isNoResult && !searchResultList.length" class="default-text-tips">
@@ -37,12 +37,12 @@
             <img src="https://icon-sets.iconify.design/assets/logo-text-light.svg" alt="Logo">
           </div> -->
           <p class="tips">
-            - {{ $t('图标库来源于Iconify在线服务，请输入英文关键词进行搜索') }} - 
+            - {{ $t('iconSearchSourceTips') }} - 
           </p>
         </div>
         <div v-else-if="isNoResult" class="no-data">
           <p class="tips">
-            - {{ $t('没有查找到相应图标') }} - 
+            - {{ $t('noIconFound') }} - 
           </p>
         </div>
         <div v-else-if="searchResultList.length" class="result-list">
@@ -67,17 +67,17 @@
       <div class="footer">
         <div class="color-setting">
           <template v-if="activeIcon">
-            <div class="label">{{ $t('选择颜色') }}: </div>
+            <div class="label">{{ $t('pickColor') }}: </div>
             <el-color-picker v-model="colorSetting" :disabled="!isSingleColor" popper-class="global-iconify-color-picker"></el-color-picker>
             <div class="color-text">({{ isSingleColor ? colorSetting : '多色图标不可设置' }})</div>
           </template>
         </div>
         <div class="footer-buttom">
           <button type="button" class="btn" @click="closeDialog">
-            {{ $t('取消') }}
+            {{ $t('cancel') }}
           </button>
           <button type="button" class="btn btn-primary" :disabled="!activeIcon" @click="submit">
-            {{ $t('确认') }}
+            {{ $t('submit') }}
           </button>
         </div>
       </div>
@@ -151,7 +151,7 @@ const onSearch = async () => {
       Object.keys(icons).map(key => {
         const _width = icons[key].width || width
         const _height = icons[key].height || height || collections[prefix]?.height || collections[prefix]?.displayHeight
-        // 仅保留宽高相等的图标
+        // Only keep icons where width equals height
         if (_width && _height && _width === _height) { 
           iconSvgList.push({
             width: _width,

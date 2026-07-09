@@ -17,7 +17,7 @@ export default {
   formConf (formData: any) {
     return {
       limit: {
-        label: '列表条目数',
+        label: 'itemCount',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',
@@ -27,7 +27,7 @@ export default {
         },
       },
       duration: {
-        label: '刷新频率',
+        label: 'refreshDuration',
         type: 'input-number',
         attrs: {
           'controls-position': 'right',

@@ -6,11 +6,11 @@
     style="margin: 0;margin-bottom: 10px;"
     @click="handleOpenSelector"
   >
-    {{ $t('查看个人壁纸库') }}
+    {{ $t('viewPersonalCollection') }}
   </button>
   <easy-dialog
     v-model="dialogVisible"
-    :title="$t('个人壁纸库')"
+    :title="$t('personalCollection')"
     width="min(760px, 94vw)"
     height="min(540px, 80vh)"
     @close="onClose"
@@ -19,10 +19,10 @@
       <div class="operation-btn-wrapper">
         <div v-if="!isBatchMode">
           <button type="button" class="btn btn-primary btn-small" @click="onImport">
-            {{ $t('导入') }}
+            {{ $t('importWallpapers') }}
           </button>
           <button type="button" class="btn btn-primary btn-small" @click="onExport">
-            {{ $t('导出') }}
+            {{ $t('exportWallpapers') }}
           </button>
           <input
             v-if="refreshInputFlag"
@@ -35,14 +35,14 @@
         <div class="w-full">
           <template v-if="isBatchMode">
             <button type="button" class="btn btn-small" @click="onBatchCancel">
-              {{ $t('取消') }}
+              {{ $t('cancel') }}
             </button>
             <button type="button" class="btn btn-danger btn-small" :disabled="batchSeletedList.length === 0" @click="onBatchDelete">
-              {{ $t('批量删除') }}({{ batchSeletedList.length }})
+              {{ $t('batchDelete') }}({{ batchSeletedList.length }})
             </button>
           </template>
           <button v-else type="button" class="btn btn-danger btn-small" @click="isBatchMode = true">
-            {{ $t('批量操作') }}
+            {{ $t('batch') }}
           </button>
         </div>
       </div>
@@ -99,14 +99,14 @@ const { t } = useI18n()
 const loadData = () => {
   const list = wallpaperCollectionList.value.slice((page.value - 1) * pageSize, page.value * pageSize).map(item => {
     if (item.includes('&w=') || item.includes('&h=')) {
-      // Unsplash图片可缩小预览
+      // Unsplash images can use a smaller preview size
       item = item.replace(/&w=\d+/, '&w=256')
       item = item.replace(/&h=\d+/, '&h=144')
     } else if (item.includes('sinaimg.cn')) {
-      // Sina图片更改小图
+      // Swap to a smaller Sina image
       item = item.replace('large', 'small')
     } else if (item.includes('bing.com')) {
-      // Bing图片更改小图
+      // Swap to a smaller Bing image
       item = item.replace('1920x1080', '320x240')
     }
     return item
@@ -159,7 +159,7 @@ const handleJump = (item: string) => {
 }
 
 const handleDelete = (item: string) => {
-  if (window.confirm(t('确定要删除所选项?'))) {
+  if (window.confirm(t('confrimToDelete'))) {
     const index = formatList.value.indexOf(item)
     if (index > -1) {
       formatList.value.splice(index, 1)
@@ -184,9 +184,9 @@ const onImport = () => {
   jsonRef.value.onchange = (e) => {
     const errorHandler = () => {
       ElNotification({
-        title: t('异常'),
+        title: t('exception'),
         type: 'error',
-        message: t('识别文件错误，请检查文件')
+        message: t('fileParseError')
       })
     }
     const el = e.currentTarget
@@ -237,7 +237,7 @@ const onSelect = (index: number) => {
 }
 
 const onBatchDelete = () => {
-  if (window.confirm(t('确定要删除所选项?'))) {
+  if (window.confirm(t('confrimToDelete'))) {
     const newList = wallpaperCollectionList.value.filter((item, index) => !batchSeletedList.value.includes(index))
     store.updateState({ key: 'wallpaperCollectionList', value: newList })
     reloadData()

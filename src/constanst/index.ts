@@ -19,92 +19,92 @@
 export const MATERIAL_LIST_MAP: Record<string, MaterialConstanst> = {
   Empty: {
     label: 'Empty',
-    text: '占位区块',
+    text: 'placeholderBlock',
     img: 'https://cdn.kongfandong.cn/howdz-material/Empty.png?imageView2/2/w/256'
   },
   Clock: {
     label: 'Clock',
-    text: '时钟',
+    text: 'simpleClock',
     img: 'https://cdn.kongfandong.cn/howdz-material/Clock.png?imageView2/2/w/256'
   },
   Weather: {
     label: 'Weather',
-    text: '天气',
+    text: 'weather',
     img: 'https://cdn.kongfandong.cn/howdz-material/Weather.png?imageView2/2/w/256'
   },
   Search: {
     label: 'Search',
-    text: '搜索栏',
+    text: 'searchBar',
     img: 'https://cdn.kongfandong.cn/howdz-material/Search.png?imageView2/2/w/256'
   },
   Collection: {
     label: 'Collection',
-    text: '导航收藏页',
+    text: 'navigationToCollection',
     img: 'https://cdn.kongfandong.cn/howdz-material/Collection.png?imageView2/2/w/256'
   },
   Bookmark: {
     label: 'Bookmark',
-    text: '书签导航',
+    text: 'navigationToBookmark',
     img: 'https://cdn.kongfandong.cn/howdz-material/Bookmark.png?imageView2/2/w/256'
   },
   Verse: {
     label: 'Verse',
-    text: '随机古诗',
+    text: 'randomVerse',
     img: 'https://cdn.kongfandong.cn/howdz-material/Verse.png?imageView2/2/w/256'
   },
   MovieLines: {
     label: 'MovieLines',
-    text: '经典电影台词',
+    text: 'movieLines',
     img: 'https://cdn.kongfandong.cn/howdz-material/MovieLine.png?imageView2/2/w/256'
   },
   Iframe: {
     label: 'Iframe',
-    text: '外部网站',
+    text: 'iframePage',
     img: 'https://cdn.kongfandong.cn/howdz-material/Iframe.png?imageView2/2/w/256'
   },
   Day: {
     label: 'Day',
-    text: '自定义日期格式',
+    text: 'customDayjs',
     img: 'https://cdn.kongfandong.cn/howdz-material/Day.png?imageView2/2/w/256'
   },
   Editor: {
     label: 'Editor',
-    text: 'Markdown写字板',
+    text: 'markdownEditor',
     img: 'https://cdn.kongfandong.cn/howdz-material/Editor.png?imageView2/2/w/256'
   },
   DailyHot: {
     label: 'DailyHot',
-    text: '今日热榜',
+    text: 'dailyHotList',
     img: 'https://cdn.kongfandong.cn/howdz-material/DailyHot.png?imageView2/2/w/256'
   },
   TodoList: {
     label: 'TodoList',
-    text: '备忘清单',
+    text: 'todoList',
     img: 'https://cdn.kongfandong.cn/howdz-material/TodoList.png?imageView2/2/w/256'
   },
   CountDown: {
     label: 'CountDown',
-    text: '倒计时',
+    text: 'countdown',
     img: 'https://cdn.kongfandong.cn/howdz-material/CountDown.png?imageView2/2/w/256'
   },
   WeiboList: {
     label: 'WeiboList',
-    text: '微博热搜',
+    text: 'weiboTrending',
     img: 'https://cdn.kongfandong.cn/howdz-material/WeiboList.png?imageView2/2/w/256'
   },
   GithubTrending: {
     label: 'GithubTrending',
-    text: 'Github趋势',
+    text: 'githubTrending',
     img: 'https://cdn.kongfandong.cn/howdz-material/GithubTrending.png?imageView2/2/w/256'
   },
   ZhihuList: {
     label: 'ZhihuList',
-    text: '知乎热榜',
+    text: 'zhihuHotList',
     img: 'https://cdn.kongfandong.cn/howdz-material/ZhihuList.png?imageView2/2/w/256'
   },
   JuejinList: {
     label: 'JuejinList',
-    text: '掘金',
+    text: 'juejinRecommand',
     img: 'https://cdn.kongfandong.cn/howdz-material/JuejinList.png?imageView2/2/w/256'
   }
 }
@@ -118,20 +118,20 @@ export const BG_IMG_TYPE_MAP = {
 }
 
 export const DAILY_HOT_CLASSIFY = [
-  { label: '微博', value: 'weibo' },
-  { label: '知乎', value: 'zhihu' },
-  { label: '少数派', value: 'sspai' },
-  { label: '哔哩哔哩', value: 'bilibili' },
-  { label: '掘金', value: 'juejin' },
-  { label: '豆瓣', value: 'douban_new' },
-  { label: '百度贴吧', value: 'tieba' },
-  { label: '今日头条', value: 'toutiao' },
-  { label: '36氪', value: '36kr' },
-  { label: '百度', value: 'baidu' },
-  { label: '抖音', value: 'douyin'},
-  { label: '腾讯新闻', value: 'newsqq' },
-  { label: '网易新闻', value: 'netease' },
+  { label: 'weibo', value: 'weibo' },
+  { label: 'zhihu', value: 'zhihu' },
+  { label: 'sspai', value: 'sspai' },
+  { label: 'bilibili', value: 'bilibili' },
+  { label: 'juejinRecommand', value: 'juejin' },
+  { label: 'douban', value: 'douban_new' },
+  { label: 'baiduTieba', value: 'tieba' },
+  { label: 'toutiao', value: 'toutiao' },
+  { label: '36kr', value: '36kr' },
+  { label: 'baidu', value: 'baidu' },
+  { label: 'douyin', value: 'douyin'},
+  { label: 'tencentNews', value: 'newsqq' },
+  { label: 'neteaseNews', value: 'netease' },
   { label: 'Github', value: 'github'},
   { label: 'V2EX', value: 'v2ex' },
-  { label: '澎湃新闻', value: 'thepaper' }
+  { label: 'thePaper', value: 'thepaper' }
 ]

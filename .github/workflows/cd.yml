@@ -1,0 +1,37 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    branches: [main]
+    types: [completed]
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sync deploy scripts + nginx configs to RHEL server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.RHEL_HOST }}
+          username: ${{ secrets.RHEL_USER }}
+          key: ${{ secrets.RHEL_SSH_KEY }}
+          source: "deploy/scripts,deploy/nginx"
+          target: "/opt/howdz"
+          strip_components: 1
+
+      - name: Deploy via blue-green switch
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.RHEL_HOST }}
+          username: ${{ secrets.RHEL_USER }}
+          key: ${{ secrets.RHEL_SSH_KEY }}
+          script: |
+            chmod +x /opt/howdz/scripts/deploy.sh
+            /opt/howdz/scripts/deploy.sh \
+              "${{ secrets.DOCKERHUB_USERNAME }}/howdz-frontend:${{ github.event.workflow_run.head_sha }}" \
+              "${{ secrets.DOCKERHUB_USERNAME }}/howdz-backend:${{ github.event.workflow_run.head_sha }}"

@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-// 雨滴效果
+// Raindrop effect
 // https://github.com/SardineFish/raindrop-fx
 // import Raindrop from 'raindrop-fx'
 import Raindrop from './source/raindrop-fx'
@@ -91,9 +91,9 @@ watch(
           if (!isStart) await raindropCtx.start()
         } catch (e) {
           ElNotification({
-            title: t('错误'),
+            title: t('error'),
             type: 'error',
-            message: t('雨滴特效实现失败, 请确保壁纸地址允许跨域')
+            message: t('rainDropEffectCorsError')
           })
         }
       }

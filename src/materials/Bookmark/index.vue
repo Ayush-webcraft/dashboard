@@ -182,14 +182,14 @@
             <Icon name="close" />
           </div>
           <div class="selected-count">
-            <span class="num">{{ selected.length }}</span>{{ $t('项已选择') }}
+            <span class="num">{{ selected.length }}</span>{{ $t('selected') }}
           </div>
           <div class="operation-btn-wrapper">
             <div class="move-btn" @click="handleMove(selected, false, folderOpener)">
-              <Icon name="send-plane" size="16" /> {{ $t('移动') }}
+              <Icon name="send-plane" size="16" /> {{ $t('move') }}
             </div>
             <div class="del-btn" @click="handleMove(selected, true, folderOpener)">
-              <Icon name="delete" size="16" /> {{ $t('删除') }}
+              <Icon name="delete" size="16" /> {{ $t('delete') }}
             </div>
           </div>
         </div>
@@ -200,14 +200,14 @@
         <Icon name="close" />
       </div>
       <div class="selected-count">
-        <span class="num">{{ selected.length }}</span>{{ $t('项已选择') }}
+        <span class="num">{{ selected.length }}</span>{{ $t('selected') }}
       </div>
       <div class="operation-btn-wrapper">
         <div class="move-btn" @click="handleMove(selected)">
-          <Icon name="send-plane" size="16" /> {{ $t('移动') }}
+          <Icon name="send-plane" size="16" /> {{ $t('move') }}
         </div>
         <div class="del-btn" @click="handleMove(selected, true)">
-          <Icon name="delete" size="16" /> {{ $t('删除') }}
+          <Icon name="delete" size="16" /> {{ $t('delete') }}
         </div>
       </div>
     </div>
@@ -274,7 +274,7 @@ const boxWrapperSize = computed(
       8
     }px`
 )
-// 文本超出行CSS
+// CSS for text line clamping
 const linesNumberStyle = computed(() => {
   const tileTitleLines = props.componentSetting.tileTitleLines
   if (tileTitleLines > 1) {
@@ -305,7 +305,7 @@ const menuList = ref<MenuSetting[]>([
     customClass: 'title'
   },
   {
-    label: () => t('新标签页打开'),
+    label: () => t('openInNewTab'),
     customClass: 'skip-icon',
     fn: (params: any) => {
       const target = judgeAddHttps(params.element.url as string)
@@ -314,7 +314,7 @@ const menuList = ref<MenuSetting[]>([
     hidden: (params: any) => params.element.type === 'folder'
   },
   {
-    label: () => t('IFrame窗口打开'),
+    label: () => t('openInIframe'),
     customClass: 'skip-icon',
     fn: (params: any) => {
       const target = judgeAddHttps(params.element.url as string)
@@ -327,21 +327,21 @@ const menuList = ref<MenuSetting[]>([
     hidden: (params: any) => params.element.type === 'folder'
   },
   {
-    label: () => t('添加'),
+    label: () => t('addItem'),
     icon: h(Icon, { name: 'add', size: 18 }) as any,
     fn: (params: any) => {
       handleAddNewBookmark(params.element.type === 'folder' ? params.element : params.parent)
     }
   },
   {
-    label: () => t('编辑'),
+    label: () => t('edit'),
     icon: h(Icon, { name: 'lock', size: 18 }) as any,
     fn: (params: any) => {
       handleEdit(params.element, params.parent)
     }
   },
   {
-    label: () => t('移动'),
+    label: () => t('move'),
     icon: h(Icon, { name: 'send-plane', size: 18 }) as any,
     fn: (params: any) => {
       handleMove([params.element], false, params.parent)
@@ -349,7 +349,7 @@ const menuList = ref<MenuSetting[]>([
     hidden: (params: any) => params.element.type === 'folder'
   },
   {
-    label: () => t('删除'),
+    label: () => t('delete'),
     icon: h(Icon, { name: 'delete', size: 18 }) as any,
     fn: (params: any) => {
       handleMove([params.element], true, params.parent)
@@ -360,7 +360,7 @@ const menuList = ref<MenuSetting[]>([
     line: true
   },
   {
-    label: () => t('批量操作'),
+    label: () => t('batch'),
     icon: h(Icon, { name: 'checkbox-multiple', size: 18 }) as any,
     fn: (params: any) => {
       setBatch(params.parent)
@@ -520,11 +520,11 @@ const handleMove = async (params: Bookmark[], isDelete = false, parent?: Bookmar
       const folder = await moveDialog.value.move(parent)
       if (folder === parent?.id) return
       if (params.filter((item) => item.type === 'folder').length) {
-        ElNotification({ title: t('提示'), message: t('目前暂不支持移动文件夹') })
+        ElNotification({ title: t('tips'), message: t('canNotMoveFolderAtPresent') })
         params = params.filter((item) => item.type !== 'folder')
       }
       if (folder === '$root') {
-        // 根目录
+        // Root directory
         params.map((item) => {
           if (!~bookmark.findIndex((item1: Bookmark) => item1.id === item.id)) {
             bookmark.push(item)
@@ -532,7 +532,7 @@ const handleMove = async (params: Bookmark[], isDelete = false, parent?: Bookmar
         })
       } else {
         const index = bookmark.findIndex((item: Bookmark) => item.id === folder)
-        // 移动
+        // Move
         if (~index) {
           params.map((item) => {
             if (!~bookmark[index].children.findIndex((item1: Bookmark) => item1.id === item.id)) {
@@ -542,9 +542,9 @@ const handleMove = async (params: Bookmark[], isDelete = false, parent?: Bookmar
         }
       }
     } else {
-      if (!confirm(t('确认要删除所选项?'))) return
+      if (!confirm(t('confirmDeleteSelectedItems'))) return
     }
-    // 删除源
+    // Remove from source
     if (parent) {
       const parentIndex = bookmark.findIndex((item: Bookmark) => item.id === parent.id)
       params.map((item) => {
@@ -621,7 +621,7 @@ const preventMouseMenu = (e: MouseEvent) => {
 onMounted(() => document.addEventListener('contextmenu', preventMouseMenu))
 onUnmounted(() => document.removeEventListener('contextmenu', preventMouseMenu))
 
-// 接收拖拽链接进行添加书签
+// Receive a dragged link to add a bookmark
 let dragTimer: ReturnType<typeof setTimeout>
 const drapOverEvent = (e: DragEvent) => {
   e.preventDefault()

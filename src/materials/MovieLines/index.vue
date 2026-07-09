@@ -189,9 +189,9 @@ const handleClickAction = () => {
   } else if (props.componentSetting.clickActionType === 3) {
     if (execCopy(lines.value)) {
       ElNotification({
-        title: t('提示'),
+        title: t('tips'),
         type: 'success',
-        message: t('复制成功')
+        message: t('copySuccess')
       })
     }
   }
