@@ -6,13 +6,33 @@ on:
     branches: [main]
     types: [completed]
 
+permissions:
+  contents: read
+
+# Blue-green flips shared state on the server. Never let two deploys interleave,
+# and never cancel one halfway through a colour switch.
+concurrency:
+  group: cd-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Only deploy commits CI actually *pushed images for*. A green CI run
+    # triggered by a pull_request never pushed anything to Docker Hub, so
+    # deploying it would pull a tag that does not exist.
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push'
     runs-on: self-hosted
+    timeout-minutes: 20
+
     steps:
-      - name: Checkout code
+      - name: Checkout the commit CI built
         uses: actions/checkout@v4
+        with:
+          # Without this, checkout takes the tip of main, which may already have
+          # moved past the commit whose images we are about to deploy.
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Sync deploy scripts + nginx configs to RHEL server
         uses: appleboy/scp-action@v0.1.7
@@ -23,6 +43,7 @@ jobs:
           source: "deploy/scripts,deploy/nginx"
           target: "/opt/howdz"
           strip_components: 1
+          overwrite: true
 
       - name: Deploy via blue-green switch
         uses: appleboy/ssh-action@v1.2.0
@@ -30,7 +51,10 @@ jobs:
           host: ${{ secrets.RHEL_HOST }}
           username: ${{ secrets.RHEL_USER }}
           key: ${{ secrets.RHEL_SSH_KEY }}
+          command_timeout: 15m
+          script_stop: true
           script: |
+            set -euo pipefail
             chmod +x /opt/howdz/scripts/deploy.sh
             /opt/howdz/scripts/deploy.sh \
               "${{ secrets.DOCKERHUB_USERNAME }}/howdz-frontend:${{ github.event.workflow_run.head_sha }}" \

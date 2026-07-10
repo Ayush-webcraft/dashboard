@@ -1,0 +1,10 @@
+# Shell scripts and Dockerfiles are executed on Linux. A CRLF checkout on Windows
+# would commit CRLF and the RHEL server would fail with "$'\r': command not found".
+* text=auto eol=lf
+*.sh      text eol=lf
+Dockerfile text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+
+# Lockfiles are generated; keep them out of diffs and merge noise.
+package-lock.json -diff linguist-generated=true

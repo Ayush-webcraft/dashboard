@@ -1,0 +1,10 @@
+# Trivy suppressions for the image scans in .github/workflows/ci.yml.
+#
+# The gate already passes `--ignore-unfixed`, so anything that lands here is a
+# CVE that HAS an upstream fix but that we are consciously accepting for now.
+# Every entry must have an owner and an expiry - an empty file is a good sign.
+#
+# Format:
+#   CVE-2026-12345 exp:2026-12-31   # why, who owns it
+#
+# (no active suppressions)
