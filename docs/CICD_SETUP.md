@@ -90,6 +90,32 @@ sudo firewall-cmd --permanent --add-service=http
 sudo firewall-cmd --reload
 ```
 
+### Self-hosted runner
+
+Both workflows use `runs-on: self-hosted` so jobs run on your own RHEL
+server instead of GitHub-hosted minutes.
+
+1. Repo **Settings > Actions > Runners > New self-hosted runner**, pick
+   Linux/x64, and follow the generated `config.sh` commands on the RHEL
+   server (the registration token in those commands expires in minutes,
+   so copy/paste them promptly).
+2. The runner needs **Node.js 20** installed directly on the server -
+   `npm ci` / `npm run lint` / `npm run build:docker` in `ci.yml` run on
+   the runner itself, not inside a container:
+   ```bash
+   curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+   sudo dnf install -y nodejs
+   ```
+3. Docker (installed above) is also required here: the
+   `dependency-check` and `sonarqube-scan-action` steps run as container
+   actions, and the Buildx/Trivy steps build and scan images directly.
+4. Install as a service so it survives reboots and reconnects
+   automatically: `sudo ./svc.sh install <RHEL_USER> && sudo ./svc.sh start`.
+5. Security note: a self-hosted runner executes workflow code (including
+   from PRs) with `<RHEL_USER>`'s permissions. Fine for a private repo
+   you fully control; don't reuse it for public repos or ones with
+   untrusted contributors.
+
 Generate an SSH key pair for GitHub Actions and authorize it:
 
 ```bash
